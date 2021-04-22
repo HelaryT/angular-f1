@@ -13,8 +13,8 @@ export class DriversService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  getDriverPerChampionships(): Observable<Drivers[]> {
-    return this._httpClient.get<Drivers[]>(this.endPoint);
+  getDriverPerChampionships(id:number): Observable<Drivers[]> {  
+    return this._httpClient.get<Drivers[]>(this.endPoint+"?championshipsid="+id);
   }
 
   getOrder(): Observable<Drivers[]> {

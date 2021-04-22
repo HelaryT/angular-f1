@@ -10,19 +10,21 @@ import { DriversService } from 'src/app/core/services/http/drivers.service';
   styleUrls: ['./drivers-list.component.scss']
 })
 export class DriversListComponent implements OnInit {
+  driverId?: number;
 
   drivers$? : Observable<Drivers[]>;
- 
   constructor(private _driversService: DriversService,private _activateRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.driverId = Number(this._activateRoute.snapshot.paramMap.get('id'));
 
-      this.loadData();
-    
+    if (this.driverId) {
+      this.fetchData(this.driverId);
+    }      
   }
 
-  loadData(){
-   this.drivers$ = this._driversService.getDriverPerChampionships();
+  fetchData(id: number){
+   this.drivers$ = this._driversService.getDriverPerChampionships(id);
   }
 
 }
