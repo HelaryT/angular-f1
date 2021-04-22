@@ -1,0 +1,35 @@
+<form [formGroup]="championshipsForm" (ngSubmit)="onSubmit(championshipsForm.value)">
+    <h2 mat-dialog-title>Student FORM</h2>
+    <mat-dialog-content class="mat-typography">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>name</mat-label>
+                    <input matInput placeholder="Jack" type="text" formControlName="name" required>
+                  </mat-form-field>
+            </div>
+    
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>years</mat-label>
+                    <input matInput placeholder="2000" type="number" formControlName="years" required>
+                  </mat-form-field>
+            </div>
+    
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>logo</mat-label>
+                    <input matInput placeholder="Inserez linkz" type="text" formControlName="logo" required>
+                  </mat-form-field>
+            </div>  
+    
+
+    
+    
+    </mat-dialog-content>
+    <p>{{championshipsForm.valid}}</p>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button type="submit" cdkFocusInitial [disabled]="!championshipsForm.valid">{{formAction}}</button>
+    </mat-dialog-actions>
+    
+    </form>

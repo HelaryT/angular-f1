@@ -14,9 +14,14 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon'; 
 
 
+import {MatInputModule} from '@angular/material/input'; 
+import {MatSelectModule} from '@angular/material/select';
+
+
+import {MatDialogModule} from '@angular/material/dialog'; 
 import {MatTabsModule} from '@angular/material/tabs'; 
 import {MatButtonModule} from '@angular/material/button'; 
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     NotFoundComponent
@@ -32,7 +37,12 @@ import {MatButtonModule} from '@angular/material/button';
     MatCardModule,
     MatMenuModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule
     
   ]
 })

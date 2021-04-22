@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Championships } from 'src/app/core/models/championships';
+import { ChampionshipsFormData } from 'src/app/core/models/championships-form-data';
 import { ChampionshipsService } from 'src/app/core/services/http/championships.service';
-
+import { ChampionshipsFormComponent } from '../../components/championships-form/championships-form.component';
 @Component({
   selector: 'app-championships-list',
   templateUrl: './championships-list.component.html',
@@ -12,7 +14,7 @@ export class ChampionshipsListComponent implements OnInit {
 
   championships$? : Observable<Championships[]>;
  
-  constructor(private _championshipsService: ChampionshipsService) { }
+  constructor(private _championshipsService: ChampionshipsService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -20,6 +22,23 @@ export class ChampionshipsListComponent implements OnInit {
 
   loadData(){
    this.championships$ = this._championshipsService.get();
-  }
+  } 
 
+ 
+  openDialog(toUpdate: boolean, championships: Championships){
+
+    const championshipsFormData: ChampionshipsFormData = {
+      toUpdate: toUpdate,
+      championships: championships
+    };
+
+    const dialogRef = this.dialog.open(ChampionshipsFormComponent,{
+      data: championshipsFormData
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.loadData();
+    });
+  }
 }

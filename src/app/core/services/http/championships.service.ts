@@ -21,5 +21,12 @@ export class ChampionshipsService {
   getById(id: number): Observable<Championships> {
     return this._httpClient.get<Championships>(this.endPoint+"/"+id);
   }
+  post(championships: Championships): Observable<Championships>{
+    return this._httpClient.post<Championships>(this.endPoint, championships)
+  }
+
+  put(championships: Championships): Observable<Championships>{
+    return this._httpClient.put<Championships>(this.endPoint+"/"+championships.id, championships)
+  }
 }
 

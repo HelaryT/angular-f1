@@ -5,6 +5,7 @@ import { ChampionshipsListComponent } from './pages/championships-list/champions
 import { ChampionshipsDetailComponent } from './pages/championships-detail/championships-detail.component';
 import { SharedModule } from '../shared/shared.module';
 import { ChampionshipsRoutingModule } from './championships-routing.module';
+import { ChampionshipsFormComponent } from './components/championships-form/championships-form.component';
 
 
 
@@ -12,7 +13,8 @@ import { ChampionshipsRoutingModule } from './championships-routing.module';
   declarations: [
     ChampionshipsComponent,
     ChampionshipsListComponent,
-    ChampionshipsDetailComponent
+    ChampionshipsDetailComponent,
+    ChampionshipsFormComponent
   ],
   imports: [
     CommonModule,SharedModule,ChampionshipsRoutingModule
