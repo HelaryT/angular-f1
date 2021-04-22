@@ -25,11 +25,11 @@ export class ChampionshipsListComponent implements OnInit {
   } 
 
  
-  openDialog(toUpdate: boolean, championships: Championships){
+  openDialog(toUpdate: boolean, championships?: Championships){
 
     const championshipsFormData: ChampionshipsFormData = {
       toUpdate: toUpdate,
-      championships: championships
+      championships!: championships!
     };
 
     const dialogRef = this.dialog.open(ChampionshipsFormComponent,{
