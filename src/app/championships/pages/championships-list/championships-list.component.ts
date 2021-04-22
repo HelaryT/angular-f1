@@ -24,6 +24,11 @@ export class ChampionshipsListComponent implements OnInit {
    this.championships$ = this._championshipsService.get();
   } 
 
+  delete(championships: Championships){
+    this._championshipsService.delete(championships).subscribe(next => {
+      this.loadData();
+    })
+  }
  
   openDialog(toUpdate: boolean, championships?: Championships){
 

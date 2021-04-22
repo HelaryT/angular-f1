@@ -28,5 +28,9 @@ export class ChampionshipsService {
   put(championships: Championships): Observable<Championships>{
     return this._httpClient.put<Championships>(this.endPoint+"/"+championships.id, championships)
   }
+
+  delete(championships: Championships): Observable<Championships>{
+    return this._httpClient.delete<Championships>(this.endPoint+"/"+championships.id)
+  }
 }
 
