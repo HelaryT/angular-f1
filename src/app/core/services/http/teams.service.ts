@@ -14,11 +14,11 @@ export class TeamsService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  get(): Observable<Teams[]> {
-    return this._httpClient.get<Teams[]>(this.endPoint);
+  getTeamsPerChampionships(id:number): Observable<Teams[]> {
+    return this._httpClient.get<Teams[]>(this.endPoint+"?championshipid="+id);
   }
-  getOrder(): Observable<Teams[]> {
-    return this._httpClient.get<Teams[]>(this.endPoint+'?_sort=points&_order=desc');
+  getOrder(id:number): Observable<Teams[]> {
+    return this._httpClient.get<Teams[]>(this.endPoint+'?_sort=points&_order=desc&championshipid='+id);
   }
 
   getById(id: number): Observable<Teams[]> {

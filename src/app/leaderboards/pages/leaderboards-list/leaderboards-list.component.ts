@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Drivers } from 'src/app/core/models/drivers';
 import { Teams } from 'src/app/core/models/teams';
@@ -14,19 +15,22 @@ export class LeaderboardsListComponent implements OnInit {
 
   drivers$!: Observable<Drivers[]>;
   displayedColumns: string[] = ["id", "name","drivernb","flag","points"];
+  champsId?: number;
 
   teams$!: Observable<Teams[]>;
   displayedColumns2: string[] = ["id", "name","headchief","flag","teampoint"];
 
-  constructor(private _driversService: DriversService,private _teamsService: TeamsService) { }
+  constructor(private _activateRoute:ActivatedRoute,private _driversService: DriversService,private _teamsService: TeamsService) { }
 
   ngOnInit(): void {
-    this.loadData();
-  }
+    this.champsId = Number(this._activateRoute.snapshot.paramMap.get('id'));
 
-  loadData(){
-    this.drivers$ = this._driversService.getOrder();
-    this.teams$ = this._teamsService.getOrder();
-
+    if (this.champsId) {
+      this.fetchData(this.champsId);
+    }   
   }
+  fetchData(id: number){
+    this.drivers$ = this._driversService.getOrder(id);
+    this.teams$ = this._teamsService.getOrder(id);  
+   }
 }
