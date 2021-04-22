@@ -17,5 +17,9 @@ export class ChampionshipsService {
   get(): Observable<Championships[]> {
     return this._httpClient.get<Championships[]>(this.endPoint);
   }
+
+  getById(id: number): Observable<Championships> {
+    return this._httpClient.get<Championships>(this.endPoint+"/"+id);
+  }
 }
 

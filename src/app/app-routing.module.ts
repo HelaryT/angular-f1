@@ -16,16 +16,22 @@ const routes: Routes = [
       import('./championships/championships.module').then((m) => m.ChampionshipsModule),
   },
   {
-    path: 'teams',
-    pathMatch: 'full',
+    path: 'championships/:id/teams',
+    data:{id:1 , name:"champid"},//faire automation
     loadChildren: () =>
       import('./teams/teams.module').then((m) => m.TeamsModule),
   },
   {
-    path: 'drivers',
-    data:{id:1},//faire automation
+    path: 'championships/:id/drivers',
+    data:{id:1 , name:"champid"},//faire automation
     loadChildren: () =>
       import('./drivers/drivers.module').then((m) => m.DriversModule),
+  },
+  {
+    path: 'championships/:id/leaderboards',
+    data:{id:1 , name:"champid"},//faire automation
+    loadChildren: () =>
+      import('./leaderboards/leaderboards.module').then((m) => m.LeaderboardModule),
   },
   {
     path: '**',

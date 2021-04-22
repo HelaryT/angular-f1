@@ -1,2 +1,26 @@
-<p>teams-list works!</p>
-{{teams$ | async | json}}
+<div class="viewport"  >
+    <div fxLayout="row wrap" fxLayoutAlign="center start "  fxLayoutGap="10px">
+        <mat-tab-group animationDuration="2000ms">
+        <div *ngFor = "let team of teams$ | async " >
+            <mat-tab label="{{team.name}}">
+                <a routerLink="{{team.id}}">
+                    <mat-card fxFlex class="example-card" style="border: solid 0.5px olive;">
+                        <mat-card-header >
+                            <mat-card-title>{{team.name}}</mat-card-title>
+                            <mat-card-subtitle>{{team.headchief}}</mat-card-subtitle>
+                        </mat-card-header >
+                        <div fxLayout="row" fxLayoutAlign="end end"> 
+                            <a routerLink="{{team.id}}" >
+                                <button  mat-raised-button style="background-color: olive;">INFOS</button>
+                            </a>
+                        </div>
+                    </mat-card>
+                </a>
+                <div fxLayout="row wrap" fxLayoutAlign="center start "  fxLayoutGap="10px">
+                    <img src="https://www.formula1.com/content/dam/fom-website/manual/Misc/PreSeasonPowerRankings/mercedes.png.transform/9col/image.png" alt="">
+                </div>
+            </mat-tab>
+        </div>
+    </mat-tab-group>
+    </div>
+</div>  

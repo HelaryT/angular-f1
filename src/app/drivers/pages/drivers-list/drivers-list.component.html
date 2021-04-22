@@ -1,2 +1,17 @@
-<p>drivers-list works!</p>
-{{drivers$ | async | json}}
+<div class="viewport" fxLayout="column wrap" fxLayoutAlign="space-evenly center "  >
+    <div *ngFor = "let driver of drivers$ | async " >
+        <mat-card fxFlex class="example-card" style="border: solid 0.5px olive;">
+            <mat-card-header >
+              <div mat-card-avatar style="background-image: url('https://celebs.infoseemedia.com/wp-content/uploads/2020/10/Lewis-Hamilton.png')" class="example-header-image">
+                </div>
+                <mat-card-title>{{driver.name}}</mat-card-title>
+              <mat-card-subtitle>{{driver.drivernb}} <img src="{{driver.flag}}" alt="" width="20"></mat-card-subtitle>
+            </mat-card-header >
+            <div fxLayout="row" fxLayoutAlign="end end"> 
+                <a routerLink="{{driver.id}}" >
+                    <button  mat-raised-button style="background-color: olive;">INFOS</button>
+                </a>
+            </div>
+          </mat-card>
+    </div>
+</div>

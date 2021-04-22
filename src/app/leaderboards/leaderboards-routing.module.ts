@@ -1,26 +1,23 @@
 import { NotFoundComponent } from './../shared/components/not-found/not-found.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DriversComponent } from './drivers.component';
-import { DriversListComponent } from './pages/drivers-list/drivers-list.component';
-import { DriversDetailComponent } from './pages/drivers-detail/drivers-detail.component';
+import { LeaderboardsListComponent } from './pages/leaderboards-list/leaderboards-list.component';
+import { LeaderboardsComponent } from './leaderboards.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: DriversComponent,
+    component: LeaderboardsComponent,
     children: [
       {
         path: '',
-        component: DriversListComponent,
+        pathMatch : 'full',
+        component: LeaderboardsListComponent,
       },
       {
-        path: 'drivers',
-        component: DriversListComponent,
-      },
-      {
-        path: ':id',
-        component: DriversDetailComponent,
+        path: 'leaderboards',
+        component: LeaderboardsListComponent,
       },
       {
         path: '**',
@@ -38,4 +35,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DriversRoutingModule { }
+export class LeaderboardsRoutingModule { }

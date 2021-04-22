@@ -19,7 +19,7 @@ import { ChampionshipsService } from './services/http/championships.service';
   exports:[
     HeaderComponent,
     FooterComponent
-  ],
+  ]
   
 
 })

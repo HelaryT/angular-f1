@@ -12,7 +12,6 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        pathMatch : 'full',
         component: ChampionshipsListComponent,
       },
       {
@@ -20,7 +19,7 @@ const routes: Routes = [
         component: ChampionshipsListComponent,
       },
       {
-        path: 'championships/:id',
+        path: ':id',
         component: ChampionshipsDetailComponent,
       },
       {

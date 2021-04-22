@@ -1,0 +1,36 @@
+.viewport{
+    height: 85vh;
+  }
+  
+  h1,p {
+    color: white;
+  }
+  
+  h1{
+    font-weight: 900;
+    font-size: 48px;
+  }
+  p{
+    font-size: 18px;
+  }
+
+mat-card-title,mat-card-subtitle{
+    font-weight: 900;
+}
+.container{
+    background-color: transparent;
+}
+
+.example-card {
+    width:400px;
+    height: 150px;
+    background-color: transparent;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+
+  a{
+      text-decoration: none;
+  }

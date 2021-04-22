@@ -2,7 +2,9 @@
     height: 85vh;
   }
   
-
+  h1,p {
+    color: black;
+  }
   
   h1{
     font-weight: 900;
@@ -11,3 +13,7 @@
   p{
     font-size: 18px;
   }
+
+table{
+  width: 100%;
+}

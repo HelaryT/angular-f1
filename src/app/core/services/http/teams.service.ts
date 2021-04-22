@@ -17,4 +17,11 @@ export class TeamsService {
   get(): Observable<Teams[]> {
     return this._httpClient.get<Teams[]>(this.endPoint);
   }
+  getOrder(): Observable<Teams[]> {
+    return this._httpClient.get<Teams[]>(this.endPoint+'?_sort=points&_order=desc');
+  }
+
+  getById(id: number): Observable<Teams[]> {
+    return this._httpClient.get<Teams[]>(this.endPoint+"/"+id);
+  }
 }
