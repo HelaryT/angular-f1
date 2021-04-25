@@ -28,6 +28,10 @@ export class ChampionshipsFormComponent implements OnInit {
         name: [data.championships.name, [Validators.required, this.noWhitespaceValidator]],
         years: [data.championships.years, [Validators.required, this.noWhitespaceValidator]],
         logo: [data.championships.logo, [Validators.required]],
+        nb_team: [data.championships.nb_team, [Validators.required, this.noWhitespaceValidator]],
+        nb_driver: [data.championships.nb_driver, [Validators.required, this.noWhitespaceValidator]],
+
+
       })
     }
     else {
@@ -35,6 +39,9 @@ export class ChampionshipsFormComponent implements OnInit {
         name: ['', [Validators.required, this.noWhitespaceValidator]],
         years: ['', [Validators.required, this.noWhitespaceValidator]],
         logo: ['', [Validators.required]],
+        nb_team: ['', [Validators.required, this.noWhitespaceValidator]],
+        nb_driver: ['', [Validators.required, this.noWhitespaceValidator]],
+
       })
     }
 
@@ -55,9 +62,11 @@ export class ChampionshipsFormComponent implements OnInit {
         })
       } else {
         this._championshipsService.post(championships).subscribe((next) => {
+          
           console.log("YES WE DID IT !!! WE HAVE ADDED A NEW Championship");
           this.championshipsForm.reset();
           this._dialogRef.close();
+
         })
       }
 

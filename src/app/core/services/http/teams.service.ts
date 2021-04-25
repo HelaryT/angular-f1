@@ -18,7 +18,7 @@ export class TeamsService {
     return this._httpClient.get<Teams[]>(this.endPoint+"?championshipid="+id);
   }
   getOrder(id:number): Observable<Teams[]> {
-    return this._httpClient.get<Teams[]>(this.endPoint+'?_sort=points&_order=desc&championshipid='+id);
+    return this._httpClient.get<Teams[]>(this.endPoint+'?_sort=points&_order=desc &championshipid='+id);
   }
 
   getById(id: number): Observable<Teams[]> {

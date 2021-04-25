@@ -19,8 +19,22 @@
                 <div fxLayout="row wrap" fxLayoutAlign="center start "  fxLayoutGap="10px">
                     <img src="https://www.formula1.com/content/dam/fom-website/manual/Misc/PreSeasonPowerRankings/mercedes.png.transform/9col/image.png" alt="">
                 </div>
+                <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
+                    <a routerLink="{{team.id}}/add">
+                        <button mat-fab color="primary">
+                            <mat-icon>add</mat-icon>
+                          </button>
+                    </a>
+                </div>
             </mat-tab>
         </div>
     </mat-tab-group>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
+        <a routerLink="7/add">
+            <button mat-fab color="primary">
+                <mat-icon>add</mat-icon>
+              </button>
+        </a>
     </div>
 </div>  

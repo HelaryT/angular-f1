@@ -1,8 +1,9 @@
 <div class="viewport">
     <div fxLayout="row" fxLayoutAlign="start center" > 
-        <div>
-            <h1>{{name}} </h1>
+        <div *ngFor = "let driver of drivers$ | keyvalue " >
+            <h1> {{driver.key}}:{{driver.value}}</h1>
         </div>
        {{driverId}}
-    </div>
+    </div>  
 </div>
+

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TeamsDetailComponent } from './pages/teams-detail/teams-detail.component';
 import { TeamsListComponent } from './pages/teams-list/teams-list.component';
 import { TeamsComponent } from './teams.component';
+import { TeamsFormComponent } from './components/teams-form/teams-form.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
         path: '',
         pathMatch : 'full',
         component: TeamsListComponent,
+      },
+      {
+        path: ':id/add',
+        component: TeamsFormComponent,
       },
       {
         path: 'teams',

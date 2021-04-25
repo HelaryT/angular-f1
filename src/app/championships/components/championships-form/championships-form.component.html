@@ -22,12 +22,24 @@
                   </mat-form-field>
             </div>  
     
+            <div>
+              <mat-form-field appearance="fill">
+                  <mat-label>nb_team </mat-label>
+                  <input matInput  placeholder="Inserez linkz" type="number" formControlName="nb_team" required>
+                </mat-form-field>
+          </div>  
+  
+          <div>
+            <mat-form-field appearance="fill">
+                <mat-label>nb_driver</mat-label>
+                <input matInput  placeholder="Inserez linkz" type="number" formControlName="nb_driver" required>
+              </mat-form-field>
+        </div>  
 
     
     
     </mat-dialog-content>
-    <p>{{championshipsForm.valid}}</p>
-    <mat-dialog-actions align="end">
+      <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Cancel</button>
       <button mat-button type="submit" cdkFocusInitial [disabled]="!championshipsForm.valid">{{formAction}}</button>
     </mat-dialog-actions>
