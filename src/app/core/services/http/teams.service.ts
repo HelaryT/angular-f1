@@ -24,4 +24,7 @@ export class TeamsService {
   getById(id: number): Observable<Teams[]> {
     return this._httpClient.get<Teams[]>(this.endPoint+"/"+id);
   }
+  post(teams: Teams): Observable<Teams>{      
+    return this._httpClient.post<Teams>(this.endPoint, teams);
+  }
 }

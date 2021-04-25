@@ -39,8 +39,10 @@
     </div>
 </div>
 <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
-    <button (click)="openDialog(false, undefined)" mat-fab color="primary">
-      <mat-icon>add</mat-icon>
-    </button>
+    <a routerLink="add">
+        <button router mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+          </button>
+    </a>
   </div>
 </div>    

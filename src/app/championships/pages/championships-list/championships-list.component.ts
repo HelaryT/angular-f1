@@ -14,7 +14,7 @@ export class ChampionshipsListComponent implements OnInit {
 
   championships$? : Observable<Championships[]>;
  
-  constructor(private _championshipsService: ChampionshipsService, public dialog: MatDialog) { }
+  constructor(private _championshipsService: ChampionshipsService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -30,20 +30,6 @@ export class ChampionshipsListComponent implements OnInit {
     })
   }
  
-  openDialog(toUpdate: boolean, championships?: Championships){
-
-    const championshipsFormData: ChampionshipsFormData = {
-      toUpdate: toUpdate,
-      championships!: championships!
-    };
-
-    const dialogRef = this.dialog.open(ChampionshipsFormComponent,{
-      data: championshipsFormData
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      this.loadData();
-    });
+  
   }
-}
+

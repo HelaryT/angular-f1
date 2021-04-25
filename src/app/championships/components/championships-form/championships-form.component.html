@@ -1,47 +1,78 @@
-<form [formGroup]="championshipsForm" (ngSubmit)="onSubmit(championshipsForm.value)">
-    <h2 mat-dialog-title>Student FORM</h2>
-    <mat-dialog-content class="mat-typography">
-            <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>name</mat-label>
-                    <input matInput placeholder="Jack" type="text" formControlName="name" required>
-                  </mat-form-field>
-            </div>
-    
-            <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>years</mat-label>
-                    <input matInput placeholder="2000" type="number" formControlName="years" required>
-                  </mat-form-field>
-            </div>
-    
-            <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>logo</mat-label>
-                    <input matInput placeholder="Inserez linkz" type="text" formControlName="logo" required>
-                  </mat-form-field>
-            </div>  
-    
-            <div>
-              <mat-form-field appearance="fill">
-                  <mat-label>nb_team </mat-label>
-                  <input matInput  placeholder="Inserez linkz" type="number" formControlName="nb_team" required>
-                </mat-form-field>
-          </div>  
-  
-          <div>
-            <mat-form-field appearance="fill">
-                <mat-label>nb_driver</mat-label>
-                <input matInput  placeholder="Inserez linkz" type="number" formControlName="nb_driver" required>
-              </mat-form-field>
-        </div>  
-
-    
-    
-    </mat-dialog-content>
-      <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>Cancel</button>
-      <button mat-button type="submit" cdkFocusInitial [disabled]="!championshipsForm.valid">{{formAction}}</button>
-    </mat-dialog-actions>
-    
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="championshipsForm">
+    <form [formGroup]="championshipsForm" (ngSubmit)="ChampionshipFormSend()">
+      <ng-template matStepLabel >Renseigné votre league</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>years</mat-label>
+        <input matInput type="number" placeholder="Last name, First name" formControlName="years" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>logo</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="logo" required>
+      </mat-form-field>
+      <div>
+        <button mat-button type="submit" (click)="reload()" matStepperNext>Next</button>
+      </div>
     </form>
+  </mat-step>
+  <mat-step [stepControl]="teamsForm" optional>
+    <form [formGroup]="teamsForm" (ngSubmit)="teamsFormSend()">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input [(ngModel)]="name" matInput formControlName="name" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>headchief</mat-label>
+        <input [(ngModel)]="headchief" matInput formControlName="headchief" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>headtech</mat-label>
+        <input [(ngModel)]="headtech" matInput formControlName="headtech" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>base</mat-label>
+        <input [(ngModel)]="base" matInput formControlName="base" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>flag</mat-label>
+        <input [(ngModel)]="flag" matInput formControlName="flag" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>startyear</mat-label>
+        <input [(ngModel)]="startyear" matInput type="number" formControlName="startyear" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>logo</mat-label>
+        <input [(ngModel)]="logo" matInput  formControlName="logo" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>teampoint</mat-label>
+        <input [(ngModel)]="teampoint" matInput type="number" formControlName="teampoint" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>teamchampionships</mat-label>
+        <input [(ngModel)]="teamchampionships" matInput type="number" formControlName="teamchampionships" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <div>
+        <button mat-button type="submit"  >Crée cette équipe</button>
+      </div>  
+    </form>
+    <button mat-button matStepperNext  >Nextr</button>
+
+    <button mat-button (click)="handleClear()">Crée une nouvelle teams</button>
+
+  </mat-step> 
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Retour a la </button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

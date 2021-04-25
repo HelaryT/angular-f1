@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ChampionshipsComponent } from './championships.component';
 import { ChampionshipsListComponent } from './pages/championships-list/championships-list.component';
 import { ChampionshipsDetailComponent } from './pages/championships-detail/championships-detail.component';
+import { ChampionshipsFormComponent } from './components/championships-form/championships-form.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,8 @@ const routes: Routes = [
         component: ChampionshipsListComponent,
       },
       {
-        path: 'championships',
-        component: ChampionshipsListComponent,
+        path: 'add',
+        component: ChampionshipsFormComponent,
       },
       {
         path: ':id',

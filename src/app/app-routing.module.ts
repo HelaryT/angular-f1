@@ -11,7 +11,6 @@ const routes: Routes = [
   },
   {
     path: 'championships',
-    pathMatch: 'full',
     loadChildren: () =>
       import('./championships/championships.module').then((m) => m.ChampionshipsModule),
   },
