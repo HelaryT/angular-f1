@@ -6,11 +6,14 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
+    pathMatch:'full',
+
     component: HomeComponent,
   },
   {
     path: 'championships',
+    pathMatch:'full',
+
     loadChildren: () =>
       import('./championships/championships.module').then((m) => m.ChampionshipsModule),
   },

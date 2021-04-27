@@ -5,6 +5,7 @@ import { DriversListComponent } from './pages/drivers-list/drivers-list.componen
 import { DriversDetailComponent } from './pages/drivers-detail/drivers-detail.component';
 import { DriversRoutingModule } from './drivers-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { DriversFormComponent } from './components/drivers-form/drivers-form.component';
 
 
 
@@ -12,7 +13,8 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     DriversComponent,
     DriversListComponent,
-    DriversDetailComponent
+    DriversDetailComponent,
+    DriversFormComponent
   ],
   imports: [
     CommonModule,DriversRoutingModule,SharedModule

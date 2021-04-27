@@ -15,7 +15,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-@NgModule({
+
+  @NgModule({
   declarations: [
     NotFoundComponent
   ],

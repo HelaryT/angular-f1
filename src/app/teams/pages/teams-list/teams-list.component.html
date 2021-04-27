@@ -1,6 +1,6 @@
 <div class="viewport"  >
     <div fxLayout="row wrap" fxLayoutAlign="center start "  fxLayoutGap="10px">
-        <mat-tab-group animationDuration="2000ms">
+        <mat-tab-group >
         <div *ngFor = "let team of teams$ | async " >
             <mat-tab label="{{team.name}}">
                 <a routerLink="{{team.id}}">
@@ -21,7 +21,7 @@
                 </div>
                 <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
                     <a routerLink="{{team.id}}/add">
-                        <button mat-fab color="primary">
+                        <button mat-raised-button color="primary">TEAM DRIVERS
                             <mat-icon>add</mat-icon>
                           </button>
                     </a>
@@ -31,8 +31,8 @@
     </mat-tab-group>
     </div>
     <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
-        <a routerLink="7/add">
-            <button mat-fab color="primary">
+        <a routerLink="add">
+            <button mat-raised-button color="primary"> TEAM
                 <mat-icon>add</mat-icon>
               </button>
         </a>

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DriversComponent } from './drivers.component';
 import { DriversListComponent } from './pages/drivers-list/drivers-list.component';
 import { DriversDetailComponent } from './pages/drivers-detail/drivers-detail.component';
+import { DriversFormComponent } from './components/drivers-form/drivers-form.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: '',
         component: DriversListComponent,
+      },
+      {
+        path: ':id/add',
+        component: DriversFormComponent,
       },
       {
         path: 'drivers',

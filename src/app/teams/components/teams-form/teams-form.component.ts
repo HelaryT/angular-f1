@@ -17,51 +17,56 @@ import { TeamsService } from 'src/app/core/services/http/teams.service';
 export class TeamsFormComponent implements OnInit {
   teamsId?: number;
   champsId?: number;
-
   teams$? : Observable<Teams[]>;
 
-  drivers1!: FormGroup;
-  drivers2!: FormGroup;
+ 
+  teamsForm!: FormGroup;
+  currentRouter: any;
+  name = '';
+  headchief= '';
+  headtech= '';
+  base= '';
+  flag= '';
+  startyear= '';
+  logo= '';
+  teampoint= '';
+  teamchampionships= '';
+
+  handleClear(){
+    this.name = ' ';  
+    this.headchief = ' ';  
+    this.headtech = ' ';  
+    this.flag = ' ';  
+    this.startyear = ' ';  
+    this.teampoint = ' ';  
+    this.logo = ' ';  
+    this.base = ' ';  
+    this.teamchampionships = ' ';  
+
+  }
 
   isEditable = false;
   constructor(private _formBuilder: FormBuilder,private _activateRoute:ActivatedRoute,private _driversService:DriversService,private _teamsService:TeamsService,private _championshipsService:ChampionshipsService) {}
 
   ngOnInit() {
-    this.teamsId = Number(this._activateRoute.snapshot.paramMap.get('id'));
+    this.champsId = Number(this._activateRoute.snapshot.paramMap.get('id'));
 
-    if (this.teamsId) {
-      this.fetchData(this.teamsId);
+    if (this.champsId) {
+      this.fetchData(this.champsId);
     } 
 
 
-    this.drivers1 = this._formBuilder.group({
-      name: ['', Validators.required],
-      country: ['', Validators.required],
-      podiums: ['', Validators.required],
-      drivernb: ['', Validators.required],
-      points: ['', Validators.required],
-      gp: ['', Validators.required],
-      champion: ['', Validators.required],
-      dob: ['', Validators.required],
-      picture: ['', Validators.required],
-      flag: ['', Validators.required],
-      championshipsid: [2, Validators.required],
-      teamsid: [this.teamsId, Validators.required]
-
-    });
-    this.drivers2 = this._formBuilder.group({
-      name: ['', Validators.required],
-      country: ['', Validators.required],
-      podiums: ['', Validators.required],
-      drivernb: ['', Validators.required],
-      points: ['', Validators.required],
-      gp: ['', Validators.required],
-      champion: ['', Validators.required],
-      dob: ['', Validators.required],
-      picture: ['', Validators.required],
-      flag: ['', Validators.required],
-      championshipsid: ['', Validators.required],
-      teamsid: ['', Validators.required]
+    this.teamsForm = this._formBuilder.group({
+      name:['', Validators.required],
+      headchief:['', Validators.required],
+      headtech:['', Validators.required],
+      base:['', Validators.required],
+      flag:['', Validators.required],
+      startyear:['', Validators.required],
+      logo:['', Validators.required],
+      teampoint:['', Validators.required],
+      teamchampionships:['', Validators.required],
+      championshipid:[this.champsId, Validators.required]
     });
   }
 
@@ -72,17 +77,9 @@ export class TeamsFormComponent implements OnInit {
   })
 }
 
-drivers11(){
-  console.log(this.drivers1.value);
-  this._driversService.post(this.drivers1.value).subscribe((next) => {
-          
-    console.log("YES WE DID IT !!! WE HAVE ADDED A NEW drivers");
-})
-}
-
-drivers22(){
-  console.log(this.drivers2.value);
-  this._driversService.post(this.drivers2.value).subscribe((next) => {
+teamsFormSend(){
+  console.log(this.teamsForm.value);
+  this._driversService.post(this.teamsForm.value).subscribe((next) => {
           
     console.log("YES WE DID IT !!! WE HAVE ADDED A NEW drivers");
 })

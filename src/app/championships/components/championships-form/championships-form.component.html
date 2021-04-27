@@ -15,58 +15,10 @@
         <input matInput placeholder="Last name, First name" formControlName="logo" required>
       </mat-form-field>
       <div>
-        <button mat-button type="submit" (click)="reload()" matStepperNext>Next</button>
+        <button mat-button type="submit" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="teamsForm" optional>
-    <form [formGroup]="teamsForm" (ngSubmit)="teamsFormSend()">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input [(ngModel)]="name" matInput formControlName="name" placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>headchief</mat-label>
-        <input [(ngModel)]="headchief" matInput formControlName="headchief" placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>headtech</mat-label>
-        <input [(ngModel)]="headtech" matInput formControlName="headtech" placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>base</mat-label>
-        <input [(ngModel)]="base" matInput formControlName="base" placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>flag</mat-label>
-        <input [(ngModel)]="flag" matInput formControlName="flag" placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>startyear</mat-label>
-        <input [(ngModel)]="startyear" matInput type="number" formControlName="startyear" placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>logo</mat-label>
-        <input [(ngModel)]="logo" matInput  formControlName="logo" placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>teampoint</mat-label>
-        <input [(ngModel)]="teampoint" matInput type="number" formControlName="teampoint" placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>teamchampionships</mat-label>
-        <input [(ngModel)]="teamchampionships" matInput type="number" formControlName="teamchampionships" placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-      <div>
-        <button mat-button type="submit"  >Crée cette équipe</button>
-      </div>  
-    </form>
-    <button mat-button matStepperNext  >Nextr</button>
-
-    <button mat-button (click)="handleClear()">Crée une nouvelle teams</button>
-
-  </mat-step> 
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
