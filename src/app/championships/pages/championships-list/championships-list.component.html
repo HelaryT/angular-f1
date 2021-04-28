@@ -1,9 +1,11 @@
 <div class="viewport" >
-    <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="row wrap" fxLayoutAlign="center center">
     <div *ngFor = "let championship of championships$ | async ">
-        <div fxLayout="column">
+        <div fxLayout="column" >
             <mat-card class="container">
                 <div fxLayoutAlign="end end">
+                    <img mat-card-image src="{{championship.logo}}" alt="" width="350">
+
                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                         <mat-icon>more_vert</mat-icon>
                       </button>
@@ -12,9 +14,12 @@
                             <mat-icon>delete</mat-icon>
                           <span>Delete</span>
                         </button>
+                        <button mat-menu-item >
+                            <mat-icon>edit</mat-icon>
+                          <span>Edit</span>
+                        </button>
                       </mat-menu>
                 </div>
-                <img mat-card-image src="{{championship.logo}}" alt="">
                 <mat-card-content>
                     <mat-card-title>{{championship.name}}</mat-card-title>
                     <mat-card-subtitle>{{championship.years}}</mat-card-subtitle>
@@ -27,9 +32,6 @@
                     <a routerLink="{{championship.id}}/leaderboards">
                         <button mat-raised-button color="primary">LEADERBOARD</button>
                     </a>
-                    <a routerLink="{{championship.id}}">
-                        <button mat-raised-button color="primary">SEE MORE</button>
-                    </a>
                     <a routerLink="{{championship.id}}/drivers">
                         <button fxFlex mat-raised-button color="primary">DRIVERS</button>
                     </a>
@@ -39,7 +41,7 @@
     </div>
 </div>
 <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
-    <a routerLink="add">
+    <a class="button-add" routerLink="add">
         <button router mat-fab color="primary">
             <mat-icon>add</mat-icon>
           </button>

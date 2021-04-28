@@ -1,29 +1,22 @@
 <div class="viewport"  >
     <div fxLayout="row wrap" fxLayoutAlign="center start "  fxLayoutGap="10px">
-        <mat-tab-group >
+        <mat-tab-group animationDuration="1000ms">
         <div *ngFor = "let team of teams$ | async " >
             <mat-tab label="{{team.name}}">
-                <a routerLink="{{team.id}}">
-                    <mat-card fxFlex class="example-card" style="border: solid 0.5px olive;">
-                        <mat-card-header >
-                            <mat-card-title>{{team.name}}</mat-card-title>
-                            <mat-card-subtitle>{{team.headchief}}</mat-card-subtitle>
-                        </mat-card-header >
-                        <div fxLayout="row" fxLayoutAlign="end end"> 
-                            <a routerLink="{{team.id}}" >
-                                <button  mat-raised-button style="background-color: olive;">INFOS</button>
-                            </a>
-                        </div>
-                    </mat-card>
-                </a>
-                <div fxLayout="row wrap" fxLayoutAlign="center start "  fxLayoutGap="10px">
-                    <img src="https://www.formula1.com/content/dam/fom-website/manual/Misc/PreSeasonPowerRankings/mercedes.png.transform/9col/image.png" alt="">
+                <div fxLayout="column" fxLayoutAlign="start center">
+                    <h1>{{team.name}}</h1>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
+                
+                <div fxLayout="row" fxLayoutAlign="space-evenly center">
+                    <a routerLink="{{team.id}}">
+                        <button mat-raised-button color="primary">
+                            <mat-icon>info</mat-icon>  TEAM INFO  
+                        </button>
+                    </a>
                     <a routerLink="{{team.id}}/add">
-                        <button mat-raised-button color="primary">TEAM DRIVERS
-                            <mat-icon>add</mat-icon>
-                          </button>
+                        <button mat-raised-button color="primary">
+                            Create Drivers
+                        </button>
                     </a>
                 </div>
             </mat-tab>
@@ -31,8 +24,8 @@
     </mat-tab-group>
     </div>
     <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
-        <a routerLink="add">
-            <button mat-raised-button color="primary"> TEAM
+        <a class="button-add" routerLink="add">
+            <button mat-fab color="primary">
                 <mat-icon>add</mat-icon>
               </button>
         </a>

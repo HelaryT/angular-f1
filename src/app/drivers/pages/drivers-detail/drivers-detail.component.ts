@@ -12,8 +12,7 @@ import { DriversService } from 'src/app/core/services/http/drivers.service';
 export class DriversDetailComponent implements OnInit {
   driverId?: number;
  
-  drivers$?: Observable<Drivers[]>;
-  drivers: Drivers[] = [];
+  drivers$!: Observable<Drivers>;
   constructor(private _driversService: DriversService,private _activateRoute:ActivatedRoute) { }
 
   ngOnInit(): void {

@@ -2,12 +2,10 @@
     height: 85vh;
   }
   
-  h1,p {
-    color: white;
-  }
   
   h1{
     font-weight: 700;
+    font-size: 40px;
   }
   p{
     font-size: 18px;
@@ -24,4 +22,8 @@
   }
   mat-tab{
     width: 100%;
+  }
+
+  .button-add{
+    margin-right: 40px;
   }

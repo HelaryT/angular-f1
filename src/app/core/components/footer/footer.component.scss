@@ -1,8 +1,11 @@
 .container{
     height: 8.35vh;
     background-color:#c2185b;
+    bottom: 0;
+    overflow-x: hidden;
 }
 
 p,h1{
     color: white;
 }
+

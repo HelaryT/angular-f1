@@ -21,8 +21,8 @@ export class DriversService {
     return this._httpClient.get<Drivers[]>(this.endPoint+'?_sort=points&_order=desc&championshipsid='+id);
   }
 
-  getById(id: number): Observable<Drivers[]> {
-    return this._httpClient.get<Drivers[]>(this.endPoint+"/"+id);
+  getById(id: number): Observable<Drivers> {
+    return this._httpClient.get<Drivers>(this.endPoint+"/"+id);
   }
 
   post(drivers: Drivers): Observable<Drivers>{      
