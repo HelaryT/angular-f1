@@ -1,21 +1,22 @@
 .viewport{
     height: 85vh;
   }
-  
-  h1,p {
-    color: white;
+  button{
+    color : white;
   }
+
   
   h1{
     font-weight: 900;
     font-size: 48px;
   }
-  p{
+  p{  
     font-size: 18px;
   }
 
 mat-card-title,mat-card-subtitle{
     font-weight: 900;
+    margin-bottom: 7px;
 }
 .container{
     background-color: transparent;
@@ -23,14 +24,24 @@ mat-card-title,mat-card-subtitle{
 
 .example-card {
     width:400px;
-    height: 150px;
+    height: 160px;
     background-color: transparent;
   }
   
   .example-header-image {
     background-size: cover;
+    width: 100px;
+    height: 100px;
   }
 
   a{
       text-decoration: none;
   }
+  mat-card{
+    margin-left: 2px;
+margin-right: 2px;
+  }
+img{
+  border: solid 0.5px black;
+}
+  

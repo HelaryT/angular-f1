@@ -5,6 +5,8 @@ export interface Teams {
     headtech:string;
     base:string;
     flag:string;
+    team_color:string;
+    car:string;
     startyear:number;
     logo:string;
     teampoint:number;

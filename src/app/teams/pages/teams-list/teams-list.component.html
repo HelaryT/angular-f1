@@ -2,23 +2,24 @@
     <div fxLayout="row wrap" fxLayoutAlign="center start "  fxLayoutGap="10px">
         <mat-tab-group animationDuration="1000ms">
         <div *ngFor = "let team of teams$ | async " >
-            <mat-tab label="{{team.name}}">
-                <div fxLayout="column" fxLayoutAlign="start center">
-                    <h1>{{team.name}}</h1>
+            <mat-tab  label="{{team.name}}" >
+                <div fxLayout="column" fxLayoutAlign="start center"  fxLayoutGap="75px">
+                    <h1 >{{team.name}}</h1>
+                    <img src="{{team.logo}}" width="309" height="174"> 
+                    <img src="{{team.car}}" alt="" >
                 </div>
-                
                 <div fxLayout="row" fxLayoutAlign="space-evenly center">
                     <a routerLink="{{team.id}}">
-                        <button mat-raised-button color="primary">
+                        <button style="background-color :{{team.team_color}}" mat-raised-button color="primary">
                             <mat-icon>info</mat-icon>  TEAM INFO  
                         </button>
                     </a>
                     <a routerLink="{{team.id}}/add">
-                        <button mat-raised-button color="primary">
+                        <button style="background-color :{{team.team_color}}" mat-raised-button color="primary">
                             Create Drivers
                         </button>
                     </a>
-                </div>
+                </div> 
             </mat-tab>
         </div>
     </mat-tab-group>

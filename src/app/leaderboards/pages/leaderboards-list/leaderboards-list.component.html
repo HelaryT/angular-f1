@@ -14,21 +14,24 @@
       
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <th mat-header-cell *matHeaderCellDef> NAME </th>
           <td mat-cell *matCellDef="let driver"> {{driver.name}} </td>
         </ng-container>
     
-        <ng-container matColumnDef="drivernb">
-          <th mat-header-cell *matHeaderCellDef> drivernb </th>
-          <td mat-cell *matCellDef="let driver"> {{driver.drivernb}} </td>
-        </ng-container>
+  
+
         <ng-container matColumnDef="flag">
-          <th mat-header-cell *matHeaderCellDef> flag </th>
-          <td mat-cell *matCellDef="let driver"> <img src="{{driver.flag}}" width="40" >  </td>
+          <th mat-header-cell *matHeaderCellDef> NATION </th>
+          <td mat-cell *matCellDef="let driver"> <img src="{{driver.flag}}" width="45" >  </td>
         </ng-container>
     
+        <ng-container matColumnDef="team_name">
+          <th mat-header-cell *matHeaderCellDef> TEAM </th>
+          <td mat-cell *matCellDef="let driver" > {{driver.team_name}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="points">
-          <th mat-header-cell *matHeaderCellDef> points </th>
+          <th mat-header-cell *matHeaderCellDef> POINTS </th>
           <td mat-cell *matCellDef="let driver"> {{driver.points}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -49,22 +52,22 @@
       
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <th mat-header-cell *matHeaderCellDef> NAME </th>
           <td mat-cell *matCellDef="let team"> {{team.name}} </td>
         </ng-container>
     
         <ng-container matColumnDef="headchief">
-          <th mat-header-cell *matHeaderCellDef> headchief </th>
+          <th mat-header-cell *matHeaderCellDef> Exec Leader </th>
           <td mat-cell *matCellDef="let team"> {{team.headchief}} </td>
         </ng-container>
 
         <ng-container matColumnDef="flag">
-          <th mat-header-cell *matHeaderCellDef> flag </th>
-          <td mat-cell *matCellDef="let team"> <img src="{{team.flag}}" width="40" >  </td>
+          <th mat-header-cell *matHeaderCellDef> NATION </th>
+          <td mat-cell *matCellDef="let team"> <img src="{{team.flag}}" width="45" >  </td>
         </ng-container>
     
         <ng-container matColumnDef="teampoint">
-          <th mat-header-cell *matHeaderCellDef> teampoint </th>
+          <th mat-header-cell *matHeaderCellDef> POINTS </th>
           <td mat-cell *matCellDef="let team"> {{team.teampoint}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>

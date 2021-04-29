@@ -14,7 +14,7 @@ import { TeamsService } from 'src/app/core/services/http/teams.service';
 export class LeaderboardsListComponent implements OnInit {
 
   drivers$!: Observable<Drivers[]>;
-  displayedColumns: string[] = ["id", "name","drivernb","flag","points"];
+  displayedColumns: string[] = ["id", "name","team_name","flag","points"];
   champsId?: number;
 
   teams$!: Observable<Teams[]>;
