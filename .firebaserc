@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angular-f1"
+  },
+  "targets": {
+    "angular-f1": {
+      "hosting": {
+        "angular-f1": [
+          "angular-f1"
+        ]
+      }
+    }
+  }
+}
