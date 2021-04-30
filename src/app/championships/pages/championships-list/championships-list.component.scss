@@ -17,12 +17,16 @@ a{
 .container{
     background-color: transparent;
     width: 450px;
+    margin-top: 10px;
 }
-
+img{
+  max-height: 110.5px;
+}
 .border{
-  border: solid 1px rgb(48, 48, 48);
+  border: solid 1px grey  ;
   border-radius: 5px;
 }
 .button-add{
   margin-right: 40px;
+  
 }

@@ -14,11 +14,11 @@ export class DriversService {
   constructor(private _httpClient: HttpClient) { }
 
   getDriverPerChampionships(id:number): Observable<Drivers[]> {  
-    return this._httpClient.get<Drivers[]>(this.endPoint+"?championshipsid="+id);
+    return this._httpClient.get<Drivers[]>(this.endPoint+"?championshipid="+id);
   }
 
   getOrder(id:number): Observable<Drivers[]> {
-    return this._httpClient.get<Drivers[]>(this.endPoint+'?_sort=points&_order=desc&championshipsid='+id);
+    return this._httpClient.get<Drivers[]>(this.endPoint+'?_sort=points&_order=desc&championshipid='+id);
   }
   put(drivers: Drivers): Observable<Drivers>{
     return this._httpClient.put<Drivers>(this.endPoint+"/"+drivers.id, drivers)

@@ -1,18 +1,20 @@
-<div class="viewport" fxLayout="column wrap" fxLayoutAlign="space-evenly center "  >
-    <div *ngFor = "let driver of drivers$ | async " >
-        <mat-card fxFlex class="example-card" style="border: solid 0.5px {{driver.team_color}};">
-            <mat-card-header >
-              <div mat-card-avatar style="background-image: url('{{driver.profile}}')" class="example-header-image">
+<div class="viewport"   >
+    <div fxLayout="row wrap" fxLayoutAlign="center center ">
+        <div *ngFor = "let driver of drivers$ | async " >
+            <mat-card fxFlex class="example-card" style="border: solid 0.5px {{driver.team_color}};">
+                <mat-card-header >
+                <div mat-card-avatar style="background-image: url('{{driver.profile}}')" class="example-header-image">
+                    </div>
+                    <mat-card-title>{{driver.name}}</mat-card-title>
+                    <mat-card-subtitle>{{driver.drivernb}} - <img src="{{driver.flag}}" alt="" width="17" ></mat-card-subtitle>
+                    <mat-card-subtitle>{{driver.team_name}}</mat-card-subtitle>
+                </mat-card-header >
+                <div fxLayout="row" fxLayoutAlign="end end"> 
+                    <a routerLink="{{driver.id}}" >
+                        <button  mat-raised-button style="background-color: {{driver.team_color}};">INFOS</button>
+                    </a>
                 </div>
-                <mat-card-title>{{driver.name}}</mat-card-title>
-                <mat-card-subtitle>{{driver.drivernb}} - <img src="{{driver.flag}}" alt="" width="17" ></mat-card-subtitle>
-                <mat-card-subtitle>{{driver.team_name}}</mat-card-subtitle>
-            </mat-card-header >
-            <div fxLayout="row" fxLayoutAlign="end end"> 
-                <a routerLink="{{driver.id}}" >
-                    <button  mat-raised-button style="background-color: {{driver.team_color}};">INFOS</button>
-                </a>
-            </div>
-          </mat-card>
+            </mat-card>
+        </div>
     </div>
 </div>

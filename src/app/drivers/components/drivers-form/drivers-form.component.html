@@ -8,7 +8,7 @@
               <div *ngIf="teams$ | async as team;">
                 <h1>Informations the team color is {{team.team_color}} and compete in the number {{team.championshipid}} ligue.</h1>
                 <p>Please consider those informations for a better experience.</p>
-                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                   <mat-form-field appearance="outline">
                     <mat-label>Team Color</mat-label>
                     <input matInput type="string" placeholder="His team color" formControlName="team_color" required>
@@ -19,7 +19,7 @@
                   </mat-form-field>
                 </div>
               </div>
-              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>Driver Name</mat-label>
                   <input matInput type="text" placeholder="Last name, First name" formControlName="name" required>
@@ -37,7 +37,7 @@
                   <input matInput type="number" placeholder="His car number" formControlName="drivernb" required>
                 </mat-form-field>
               </div>
-              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>Driver Country</mat-label>
                   <input matInput type="text" placeholder="His country" formControlName="country" required>
@@ -59,7 +59,7 @@
                   <input matInput type="text" placeholder="A link to the country Flag" formControlName="flag" required>
                 </mat-form-field>
               </div>
-              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>First saison of F1</mat-label>
                   <input matInput type="number" placeholder="His number champion" formControlName="join_f1" required>
@@ -92,7 +92,7 @@
               <div *ngIf="teams$ | async as team;">
                 <h1>Informations the team color is {{team.team_color}} and compete in the number {{team.championshipid}} ligue.</h1>
                 <p>Please consider those informations for a better experience.</p>
-                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                   <mat-form-field appearance="outline">
                     <mat-label>Team Color</mat-label>
                     <input matInput type="string" placeholder="His team color" formControlName="team_color" required>
@@ -103,7 +103,7 @@
                   </mat-form-field>
                 </div>
               </div>
-              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>Driver Name</mat-label>
                   <input matInput type="text" placeholder="Last name, First name" formControlName="name" required>
@@ -120,12 +120,8 @@
                   <mat-label>Driver Number</mat-label>
                   <input matInput type="number" placeholder="His car number" formControlName="drivernb" required>
                 </mat-form-field>
-                <mat-form-field appearance="outline">
-                  <mat-label>Driver Color</mat-label>
-                  <input matInput type="string" placeholder="His team color" formControlName="team_color" required>
-                </mat-form-field>
               </div>
-              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>Driver Country</mat-label>
                   <input matInput type="text" placeholder="His country" formControlName="country" required>
@@ -147,7 +143,7 @@
                   <input matInput type="text" placeholder="A link to the country Flag" formControlName="flag" required>
                 </mat-form-field>
               </div>
-              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>First saison of F1</mat-label>
                   <input matInput type="number" placeholder="His number champion" formControlName="join_f1" required>

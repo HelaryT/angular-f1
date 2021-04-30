@@ -3,9 +3,9 @@
     <mat-step [stepControl]="teamsForm">
       <form [formGroup]="teamsForm" (ngSubmit)="teamsFormSend()">
         <ng-template matStepLabel>Fill out Team Info</ng-template>
-        <div fxLayout="column" fxLayoutAlign="start center" >
+        <div fxLayout="column " fxLayoutAlign="start center" >
             <div fxLayout="column" fxLayoutAlign="center center">
-              <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px">
+              <div fxLayout="row wrap " fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>Team name</mat-label>
                   <input [(ngModel)]="name" matInput type="text" placeholder="Name..." formControlName="name" required>
@@ -23,7 +23,7 @@
                   <input [(ngModel)]="flag" matInput formControlName="flag" placeholder="Link to the flag" required>
                 </mat-form-field>
               </div>
-              <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px">
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>Chief Exec</mat-label>
                   <input [(ngModel)]="headchief" matInput type="text" placeholder="Chief Exec..." formControlName="headchief" required>
@@ -34,7 +34,7 @@
                 </mat-form-field>
               </div>
             </div>
-            <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
               <mat-form-field appearance="outline">
                 <mat-label>Team Logo</mat-label>
                 <input [(ngModel)]="logo" matInput  formControlName="logo" placeholder="Link to the logo" required>
@@ -48,7 +48,7 @@
                 <input [(ngModel)]="car" matInput  formControlName="car" placeholder="Link to the car" required>
               </mat-form-field>
             </div>
-            <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
               <mat-form-field appearance="outline">
                 <mat-label>Team Points</mat-label>
                 <input [(ngModel)]="teampoint" matInput type="number" formControlName="teampoint" placeholder="1000..." required>
@@ -58,7 +58,7 @@
                 <input [(ngModel)]="teamchampionships" matInput type="number" formControlName="teamchampionships" placeholder="7..." required>
               </mat-form-field>
             </div>
-            <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px" >
+            <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" >
               <button mat-raised-button [disabled]="!teamsForm.valid" color="primary" type="submit"><mat-icon>done</mat-icon>Crée cette équipe</button>
               <button mat-raised-button color="primary" routerLink=".." matStepperPrevious>Back to teams</button>
             </div>
@@ -69,7 +69,6 @@
       </div>
     </mat-step> 
     </mat-horizontal-stepper>
-    {{champsId}}
 </div>
 
 

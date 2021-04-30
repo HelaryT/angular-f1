@@ -1,15 +1,14 @@
 <div class="viewport" >
-    <div fxLayout="row " fxLayoutAlign="center center">
+    <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center center" >
         <div *ngFor = "let championship of championships$ | async ">
-            <div fxLayout="column" >
-                <mat-card class="container">
+                <mat-card class="container border">
                     <div fxLayoutAlign="end end">
-                        <img mat-card-image src="{{championship.logo}}" alt="" width="350">
+                        <img mat-card-image src="{{championship.logo}}" alt="" width="350" max-height="110">
                         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                             <mat-icon>more_vert</mat-icon>
                         </button>
                         <mat-menu #menu="matMenu">
-                            <button mat-menu-item (click)="delete(championship)" >
+                            <button mat-menu-item (click)="delete(championship)" color="warn">
                                 <mat-icon>delete</mat-icon>
                             <span>Delete</span>
                             </button>
@@ -36,14 +35,11 @@
                         </a>
                     </mat-card-actions>
                 </mat-card>
-            </div>
         </div>
     </div>
-    <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
-        <a class="button-add" >
-            <button (click)="openDialog(false, undefined!)" router mat-fab color="primary">
-                <mat-icon>add</mat-icon>
-            </button>
-        </a>
+    <div fxLayout="column" fxLayoutAlign="end end" class="example-button-container">
+        <button class="button-add" (click)="openDialog(false, undefined!)" router mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+        </button>
   </div>
 </div>    

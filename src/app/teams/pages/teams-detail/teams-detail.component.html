@@ -8,7 +8,7 @@
             </mat-list-item>
                <mat-divider style="border : solid 1px {{team.team_color}};"></mat-divider>
         </mat-list>
-        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
             <div>
                 <div *ngFor = "let driver of drivers$ | async " >
                     <mat-card class="margin-top" class="example-card" style="border: solid 0.5px {{driver.team_color}};">

@@ -1,34 +1,34 @@
 <div class="viewport"  >
-    <div fxLayout="row wrap" fxLayoutAlign="center start "  fxLayoutGap="10px">
         <mat-tab-group animationDuration="1000ms">
-        <div *ngFor = "let team of teams$ | async " >
-            <mat-tab  label="{{team.name}}" >
-                <div fxLayout="column" fxLayoutAlign="start center"  fxLayoutGap="75px">
-                    <h1 >{{team.name}} - <img class="flag"src="{{team.flag}}" width="60"></h1>
-                    <img src="{{team.logo}}" width="309" height="174"> 
-                    <img src="{{team.car}}" alt="" >
+            <div *ngFor = "let team of teams$ | async " >
+                <div fxLayout="row wrap" fxLayoutAlign="center start "  fxLayoutGap="10px">
+                    <mat-tab  label="{{team.name}}" >
+                        <div fxLayout="column" fxLayoutAlign="start center"  fxLayoutGap="75px">
+                            <h1 >{{team.name}} - <img class="flag"src="{{team.flag}}" width="60"></h1>
+                            <img src="{{team.logo}}" width="309" height="174"> 
+                            <img src="{{team.car}}" alt="" >
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+                            <a routerLink="{{team.id}}">
+                                <button class="margin-button"style="background-color :{{team.team_color}}" mat-raised-button color="primary">
+                                    <mat-icon>info</mat-icon>  TEAM INFO  
+                                </button>
+                            </a>
+                            <a routerLink="{{team.id}}/add">
+                                <button class="margin-button" style="background-color :{{team.team_color}}" mat-raised-button color="primary">
+                                    Create Drivers
+                                </button>
+                            </a>
+                        </div> 
+                    </mat-tab>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="space-evenly center">
-                    <a routerLink="{{team.id}}">
-                        <button class="margin-button"style="background-color :{{team.team_color}}" mat-raised-button color="primary">
-                            <mat-icon>info</mat-icon>  TEAM INFO  
-                        </button>
-                    </a>
-                    <a routerLink="{{team.id}}/add">
-                        <button class="margin-button" style="background-color :{{team.team_color}}" mat-raised-button color="primary">
-                            Create Drivers
-                        </button>
-                    </a>
-                </div> 
-            </mat-tab>
+            </div>
+        </mat-tab-group>
+        <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
+            <a class="button-add" routerLink="add/{{champsId}}">
+                <button mat-fab color="primary">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </a>
         </div>
-    </mat-tab-group>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
-        <a class="button-add" routerLink="add/{{champsId}}">
-            <button mat-fab color="primary">
-                <mat-icon>add</mat-icon>
-              </button>
-        </a>
-    </div>
 </div>  
