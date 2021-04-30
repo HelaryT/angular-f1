@@ -4,23 +4,23 @@
             <mat-list-item fxLayout="row" fxLayoutAlign="end start">
                 <button mat-raised-button routerLink="edit" color="accent" ><mat-icon>edit</mat-icon>EDIT</button>
                 <button mat-raised-button (click)="delete(team)" color="warn"><mat-icon>delete</mat-icon>DELETE</button>
-                <button mat-raised-button routerLink=".."  >Back</button>
+                <button mat-raised-button style="color: black" routerLink=".."  >Back<mat-icon>arrow_forward</mat-icon></button>
             </mat-list-item>
                <mat-divider style="border : solid 1px {{team.team_color}};"></mat-divider>
         </mat-list>
         <div fxLayout="row" fxLayoutAlign="space-evenly center">
             <div>
                 <div *ngFor = "let driver of drivers$ | async " >
-                    <mat-card  class="example-card" style="border: solid 0.5px {{driver.team_color}};">
+                    <mat-card class="margin-top" class="example-card" style="border: solid 0.5px {{driver.team_color}};">
                         <mat-card-header >
                           <div mat-card-avatar class="example-header-image">
-                              <img src="{{driver.profile}}" alt="" width="40" height="40">
+                              <img src="{{driver.picture}}" alt="" width="40" height="40">
                             </div>
                             <mat-card-title>{{driver.name}}</mat-card-title>
                             <mat-card-subtitle>{{driver.drivernb}} - <img class="flag" src="{{driver.flag}}" alt="" width="15" ></mat-card-subtitle>
                         </mat-card-header >
                         <div fxLayout="row" fxLayoutAlign="end end"> 
-                            <a routerLink="drivers/{{driver.id}}" >
+                            <a routerLink="/championships/{{team.championshipid}}/drivers/{{driver.id}}" >
                                 <button  mat-raised-button style="background-color: {{driver.team_color}};">INFOS</button>
                             </a>
                         </div>
@@ -32,7 +32,26 @@
                 <img src="{{team.logo}}" alt="" width="309" height="174">
                 <img src="{{team.car}}" alt="">
             </div>
-                <h1>bad</h1>
+            <div>
+                <div class="margin-top" class="container" style="border-top: solid 2px {{team.team_color}};">
+                    <div fxLayout="column"  fxLayoutAlign="start start">
+                        <h2 style="border-bottom: solid 2px {{team.team_color}}">Team</h2>
+                    </div>
+                    <div fxLayout="column"  fxLayoutAlign="start start">
+                        <p>Started in {{team.base}}, they joined in {{team.startyear}}.</p>
+                        <p>As Executive Principal {{team.headchief}}, and  {{team.headtech}} as Technical Principal.</p>
+                    </div>
+                </div>
+                <div class="margin-top" class="container" style="border-top: solid 2px {{team.team_color}};">
+                    <div fxLayout="column"  fxLayoutAlign="start start">
+                        <h2 style="border-bottom: solid 2px {{team.team_color}}">Stat</h2>
+                    </div>
+                    <div fxLayout="column"  fxLayoutAlign="start start">
+                        <p>They managed to win {{team.teamchampionships}} times, the Champion of the world title.</p>
+                        <p>In this actual season they scored {{team.teampoint}}.</p>
+                    </div>
+                </div>
+            </div>
         </div> 
     </div>
 </div>

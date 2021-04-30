@@ -6,6 +6,8 @@ import { TeamsDetailComponent } from './pages/teams-detail/teams-detail.componen
 import { TeamsListComponent } from './pages/teams-list/teams-list.component';
 import { TeamsComponent } from './teams.component';
 import { TeamsFormComponent } from './components/teams-form/teams-form.component';
+import { TeamEditComponent } from './components/team-edit/team-edit.component';
+
 import { DriversFormComponent } from '../drivers/components/drivers-form/drivers-form.component';
 
 const routes: Routes = [
@@ -21,6 +23,10 @@ const routes: Routes = [
       {
         path: 'add',
         component: TeamsFormComponent,
+      },
+      {
+        path: ':id/edit',
+        component: TeamEditComponent,
       },
       {
         path: ':id/add',

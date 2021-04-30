@@ -1,1 +1,80 @@
-<p>team-edit works!</p>
+<div class="viewport">
+    <div *ngIf="teams$ | async as team;">
+    <form [formGroup]="teamsForm" (ngSubmit)="onSubmit(teamsForm.value)">
+        <mat-list>
+            <mat-list-item fxLayout="row" fxLayoutAlign="end start">
+                <button mat-raised-button type="submit" color="primary" ><mat-icon>done</mat-icon>DONE</button>
+                <button mat-raised-button color="warn" routerLink=".."  >CANCEL<mat-icon>cancel</mat-icon></button>
+                <button mat-raised-button style="color: black" routerLink=".."  >Back<mat-icon>arrow_forward</mat-icon></button>
+            </mat-list-item>
+               <mat-divider style="border : solid 1px {{team.team_color}};"></mat-divider>
+        </mat-list>
+        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+            <div class="margin-top" class="container" style="border-top: solid 2px {{team.team_color}};">
+                <div fxLayout="column"  fxLayoutAlign="start start">
+                    <h2 style="border-bottom: solid 2px {{team.team_color}}">Stat</h2>
+                </div>
+                <div fxLayout="column"  fxLayoutAlign="start start">
+                    <p>They managed to win
+                        <mat-form-field appearance="outline">
+                        <mat-label>{{team.teamchampionships}}</mat-label>
+                        <input matInput type="number" placeholder="{{team.teamchampionships}}" formControlName="teamchampionships" required>
+                      </mat-form-field> times, the Champion of the world title.</p>
+                      Points this season
+                      <mat-form-field appearance="outline">
+                        <mat-label>{{team.teampoint}}</mat-label>
+                        <input matInput type="number" placeholder="{{team.teampoint}}" formControlName="teampoint" required>
+                      </mat-form-field>
+                </div>
+            </div>
+            <div  class="margin-top" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="75px">
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{team.name}}</mat-label>
+                        <input matInput type="text" placeholder="{{team.name}}" formControlName="name" required>
+                      </mat-form-field> 
+                      
+                      <mat-form-field appearance="outline">
+                        <mat-label>Flag</mat-label>
+                        <input matInput type="text" placeholder="{{team.flag}}" formControlName="flag" required>
+                      </mat-form-field>     
+                </div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Logo</mat-label>
+                    <input matInput type="text" placeholder="Link to the Logo" formControlName="logo" required>
+                  </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Car</mat-label>
+                    <input matInput type="text" placeholder="Link to the car" formControlName="car" required>
+                  </mat-form-field>
+            </div>
+            <div class="margin-top" class="container" style="border-top: solid 2px {{team.team_color}};">
+                <div fxLayout="column"  fxLayoutAlign="start start">
+                    <h2 style="border-bottom: solid 2px {{team.team_color}}">Team</h2>
+                </div>
+                <div fxLayout="column"  fxLayoutAlign="start start">
+                    <p>Started in 
+                    <mat-form-field appearance="outline">
+                        <mat-label>Home base</mat-label>
+                        <input matInput type="text" placeholder="{{team.base}}" formControlName="base" required>
+                    </mat-form-field>Joined in 
+                    <mat-form-field appearance="outline">
+                        <mat-label>Starting Years</mat-label>
+                        <input matInput type="number" placeholder="{{team.startyear}}" formControlName="startyear" required>
+                    </mat-form-field></p>
+                    <p>As Executive Principal 
+                        <mat-form-field appearance="outline">
+                        <mat-label>Exec Director</mat-label>
+                        <input matInput type="text" placeholder="{{team.headchief}}" formControlName="headchief" required>
+                    </mat-form-field>
+                    As Technical Principal 
+                    <mat-form-field appearance="outline">
+                        <mat-label>Tech Director</mat-label>
+                        <input matInput type="text" placeholder="{{team.headtech}}" formControlName="headtech" required>
+                    </mat-form-field></p>
+                </div>
+            </div>
+        </div>
+    </form> 
+    </div> 
+</div>

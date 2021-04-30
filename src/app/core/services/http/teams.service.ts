@@ -30,4 +30,7 @@ export class TeamsService {
   delete(teams: Teams): Observable<Teams>{
     return this._httpClient.delete<Teams>(this.endPoint+"/"+teams.id)
   }
+  put(teams: Teams,id:number): Observable<Teams>{
+    return this._httpClient.put<Teams>(this.endPoint+"/"+id, teams)
+  }
 }

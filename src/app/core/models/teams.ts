@@ -11,4 +11,5 @@ export interface Teams {
     logo:string;
     teampoint:number;
     teamchampionships:number;
+    championshipid:number;
 }

@@ -14,5 +14,8 @@ export interface Drivers {
     picture:string;
     flag:string;
     join_f1:number;
+    age:number;
     city:string;
+    teamsid:number;
+    championshipid:number;
 }
