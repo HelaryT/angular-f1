@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Drivers } from 'src/app/core/models/drivers';
 import { Teams } from 'src/app/core/models/teams';
+import { TeamsFormData } from 'src/app/core/models/teams-form-data';
 import { DriversService } from 'src/app/core/services/http/drivers.service';
 import { TeamsService } from 'src/app/core/services/http/teams.service';
+import { TeamEditComponent } from '../../components/team-edit/team-edit.component';
 
 @Component({
   selector: 'app-teams-detail',
@@ -13,12 +16,12 @@ import { TeamsService } from 'src/app/core/services/http/teams.service';
   styleUrls: ['./teams-detail.component.scss']
 })
 export class TeamsDetailComponent implements OnInit {
-  teamId?: number;
+  teamId!: number;
 
   teams$!: Observable<Teams>;
   drivers$!: Observable<Drivers[]>;
 
-  constructor(private _snackBar: MatSnackBar,private _teamsService: TeamsService,private _driversService: DriversService,private _activateRoute:ActivatedRoute) { }
+  constructor(public dialog: MatDialog,private _snackBar: MatSnackBar,private _teamsService: TeamsService,private _driversService: DriversService,private _activateRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.teamId = Number(this._activateRoute.snapshot.paramMap.get('id'));
@@ -41,5 +44,20 @@ export class TeamsDetailComponent implements OnInit {
     this.openSnackBar("Deleted team","Not Nice");
 
   }
+  openDialog(toUpdate: boolean, teams: Teams){
 
+    const TeamsFormData: TeamsFormData = {
+      toUpdate: toUpdate,
+      teams: teams
+    };
+
+    const dialogRef = this.dialog.open(TeamEditComponent,{
+      data: TeamsFormData
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.fetchData(this.teamId);
+    });
+  }
 }

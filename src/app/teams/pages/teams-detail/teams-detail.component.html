@@ -2,7 +2,7 @@
     <div *ngIf="teams$ | async as team;">
         <mat-list>
             <mat-list-item fxLayout="row" fxLayoutAlign="end start">
-                <button mat-raised-button routerLink="edit" color="accent" ><mat-icon>edit</mat-icon>EDIT</button>
+                <button mat-raised-button (click)="openDialog(true, team)" color="accent" ><mat-icon>edit</mat-icon>EDIT</button>
                 <button mat-raised-button (click)="delete(team)" color="warn"><mat-icon>delete</mat-icon>DELETE</button>
                 <button mat-raised-button style="color: black" routerLink=".."  >Back<mat-icon>arrow_forward</mat-icon></button>
             </mat-list-item>
