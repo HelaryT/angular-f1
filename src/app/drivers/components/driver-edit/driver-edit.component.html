@@ -63,7 +63,10 @@
                                         <mat-label>Joined F1</mat-label>
                                         <input formControlName="join_f1" matInput type="number" placeholder="Joined F1">
                                     </mat-form-field>, he finally joined what he wished the championship.name.</p>
-                                <p>Now driver.age he's giving it everything at {{driver.team_name}}.</p>
+                                <p>Now <mat-form-field appearance="outline">
+                                    <mat-label>Age</mat-label>
+                                    <input formControlName="age" matInput type="number" placeholder="{{driver.age}}">
+                                </mat-form-field> he's giving it everything at {{driver.team_name}}.</p>
                             </div>
                         </div>
                         <div class="container" style="border-top: solid 2px {{driver.team_color}}">

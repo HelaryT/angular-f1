@@ -25,17 +25,16 @@ export class TeamEditComponent implements OnInit {
       this.fetchData(this.teamId);
     }
     this.teamsForm = this.fb.group({
-      name:['', Validators.required,this.noWhitespaceValidator],
-      headchief:['', Validators.required,this.noWhitespaceValidator],
-      headtech:['', Validators.required,this.noWhitespaceValidator],
-      base:['', Validators.required,this.noWhitespaceValidator],
-      flag:['', Validators.required,this.noWhitespaceValidator],
-      startyear:['', Validators.required],
-      logo:['', Validators.required,this.noWhitespaceValidator],
-      car:['', Validators.required,this.noWhitespaceValidator],
-      team_color:['', Validators.required,this.noWhitespaceValidator],
-      teampoint:['', Validators.required,this.noWhitespaceValidator],
-      teamchampionships:['', Validators.required],
+      name:['', [Validators.required,this.noWhitespaceValidator]],
+      headchief:['', [Validators.required,this.noWhitespaceValidator]],
+      headtech:['', [Validators.required,this.noWhitespaceValidator]],
+      base:['', [Validators.required,this.noWhitespaceValidator]],
+      flag:['', [Validators.required,this.noWhitespaceValidator]],
+      startyear:['', [Validators.required]],
+      logo:['', [Validators.required,this.noWhitespaceValidator]],
+      car:['', [Validators.required,this.noWhitespaceValidator]],
+      teampoint:['', [Validators.required]],
+      teamchampionships:['', [Validators.required]],
     }); 
   }
 
@@ -47,7 +46,7 @@ export class TeamEditComponent implements OnInit {
   onSubmit(teams: Teams) {
     if (this.teamsForm.valid) {
     this._teamsService.put(teams,this.teamId).subscribe((next) => {
-      console.log("YES WE DID IT !!! WE HAVE updated A STUDENT");
+      console.log("YES WE DID IT !!! WE HAVE updated A team");
     })
     }
   }

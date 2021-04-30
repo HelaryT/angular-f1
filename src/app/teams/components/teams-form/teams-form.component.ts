@@ -62,18 +62,18 @@ export class TeamsFormComponent implements OnInit {
 
 
     this.teamsForm = this._formBuilder.group({
-      name:['', Validators.required,this.noWhitespaceValidator],
-      headchief:['', Validators.required,this.noWhitespaceValidator],
-      headtech:['', Validators.required,this.noWhitespaceValidator],
-      base:['', Validators.required,this.noWhitespaceValidator],
-      flag:['', Validators.required,this.noWhitespaceValidator],
-      startyear:['', Validators.required],
-      logo:['', Validators.required,this.noWhitespaceValidator],
-      car:['', Validators.required,this.noWhitespaceValidator],
-      team_color:['', Validators.required,this.noWhitespaceValidator],
-      teampoint:['', Validators.required,this.noWhitespaceValidator],
-      teamchampionships:['', Validators.required],
-      championshipid:[this.champsId, Validators.required]
+      name:['', [Validators.required,this.noWhitespaceValidator]],
+      headchief:['', [Validators.required,this.noWhitespaceValidator]],
+      headtech:['', [Validators.required,this.noWhitespaceValidator]],
+      base:['', [Validators.required,this.noWhitespaceValidator]],
+      flag:['', [Validators.required,this.noWhitespaceValidator]],
+      startyear:['', [Validators.required]],
+      logo:['', [Validators.required,this.noWhitespaceValidator]],
+      car:['', [Validators.required,this.noWhitespaceValidator]],
+      team_color:['', [Validators.required,this.noWhitespaceValidator]],
+      teampoint:['', [Validators.required]],
+      teamchampionships:['', [Validators.required]],
+      championshipid:[this.champsId, [Validators.required]]
     });
   }
 
