@@ -15,8 +15,9 @@ import { TeamsService } from 'src/app/core/services/http/teams.service';
 })
 export class DriversFormComponent implements OnInit {
   teamsId?: number;
+  champsId?: number;
 
-  teams$? : Observable<Teams[]>;
+  teams$? : Observable<Teams>;
 
   drivers1!: FormGroup;
   drivers2!: FormGroup;
@@ -26,6 +27,7 @@ export class DriversFormComponent implements OnInit {
 
   ngOnInit() {
     this.teamsId = Number(this._activateRoute.snapshot.paramMap.get('id'));
+    this.champsId = Number(this._activateRoute.snapshot.paramMap.get('id'));
 
     if (this.teamsId) {
       this.fetchData(this.teamsId);
@@ -47,8 +49,9 @@ export class DriversFormComponent implements OnInit {
       profile: ['', [Validators.required,this.noWhitespaceValidator]],
       join_f1: ['', [Validators.required]],
       age: ['', [Validators.required]],
+      team_color: ['', [Validators.required]],
       teamsid: [this.teamsId, [Validators.required]],
-      championshipsid: [2, [Validators.required]]
+      championshipid: ['', [Validators.required]]
 
 
     });
@@ -56,6 +59,7 @@ export class DriversFormComponent implements OnInit {
       name: ['', [Validators.required,this.noWhitespaceValidator]],
       country: ['', [Validators.required,this.noWhitespaceValidator]],
       podiums: ['', [Validators.required]],
+      age: ['', [Validators.required]],
       drivernb: ['', [Validators.required]],
       points: ['', [Validators.required]],
       gp: ['', [Validators.required]],
@@ -66,9 +70,9 @@ export class DriversFormComponent implements OnInit {
       city: ['', [Validators.required,this.noWhitespaceValidator]],
       profile: ['', [Validators.required,this.noWhitespaceValidator]],
       join_f1: ['', [Validators.required]],
-      age: ['', [Validators.required]],
+      team_color: ['', [Validators.required]],
       teamsid: [this.teamsId, [Validators.required]],
-      championshipsid: [2, [Validators.required]]
+      championshipid: ['', [Validators.required]]
 
     });
   }
@@ -105,7 +109,7 @@ drivers22(){
 }
 
 fetchData(id: number){
-  this.teams$ = this._teamsService.getTeamsPerChampionships(id);
+  this.teams$ = this._teamsService.getById(id);
  }
 
  public noWhitespaceValidator(control: FormControl) {

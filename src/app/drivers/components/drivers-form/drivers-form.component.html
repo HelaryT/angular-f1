@@ -5,6 +5,20 @@
           <form [formGroup]="drivers1" (ngSubmit)="drivers11()">
             <ng-template matStepLabel  >Fill out your first driver</ng-template>
             <div fxLayout="column" fxLayoutAlign="center center">
+              <div *ngIf="teams$ | async as team;">
+                <h1>Informations the team color is {{team.team_color}} and compete in the number {{team.championshipid}} ligue.</h1>
+                <p>Please consider those informations for a better experience.</p>
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Team Color</mat-label>
+                    <input matInput type="string" placeholder="His team color" formControlName="team_color" required>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Team championship</mat-label>
+                    <input matInput type="number" placeholder="His team championship" formControlName="championshipid" required>
+                  </mat-form-field>
+                </div>
+              </div>
               <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>Driver Name</mat-label>
@@ -75,6 +89,20 @@
           <form [formGroup]="drivers2" (ngSubmit)="drivers22()">
             <ng-template matStepLabel>Fill out your second driver</ng-template>
             <div fxLayout="column" fxLayoutAlign="center center">
+              <div *ngIf="teams$ | async as team;">
+                <h1>Informations the team color is {{team.team_color}} and compete in the number {{team.championshipid}} ligue.</h1>
+                <p>Please consider those informations for a better experience.</p>
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Team Color</mat-label>
+                    <input matInput type="string" placeholder="His team color" formControlName="team_color" required>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Team championship</mat-label>
+                    <input matInput type="number" placeholder="His team championship" formControlName="championshipid" required>
+                  </mat-form-field>
+                </div>
+              </div>
               <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <mat-form-field appearance="outline">
                   <mat-label>Driver Name</mat-label>
@@ -91,6 +119,10 @@
                 <mat-form-field appearance="outline">
                   <mat-label>Driver Number</mat-label>
                   <input matInput type="number" placeholder="His car number" formControlName="drivernb" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Color</mat-label>
+                  <input matInput type="string" placeholder="His team color" formControlName="team_color" required>
                 </mat-form-field>
               </div>
               <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
