@@ -16,6 +16,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+
 import {MatDividerModule} from '@angular/material/divider'; 
 
 
@@ -46,7 +48,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatStepperModule,
     MatProgressSpinnerModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSnackBarModule
     
   ]
 })

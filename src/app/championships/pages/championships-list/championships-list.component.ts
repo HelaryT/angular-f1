@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Championships } from 'src/app/core/models/championships';
 import { ChampionshipsFormData } from 'src/app/core/models/championships-form-data';
@@ -15,7 +16,7 @@ export class ChampionshipsListComponent implements OnInit {
 
   championships$? : Observable<Championships[]>;
  
-  constructor(private _championshipsService: ChampionshipsService,public dialog: MatDialog) { }
+  constructor(private _snackBar: MatSnackBar,private _championshipsService: ChampionshipsService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -28,7 +29,11 @@ export class ChampionshipsListComponent implements OnInit {
   delete(championships: Championships){
     this._championshipsService.delete(championships).subscribe(next => {
       this.loadData();
+      this.openSnackBar("Deleted Championships","Not Nice");
     })
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
   openDialog(toUpdate: boolean, championships: Championships){
 

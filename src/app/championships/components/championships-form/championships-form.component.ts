@@ -1,6 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Championships } from 'src/app/core/models/championships';
 import { ChampionshipsFormData } from 'src/app/core/models/championships-form-data';
 import { ChampionshipsService } from 'src/app/core/services/http/championships.service';
@@ -15,7 +16,7 @@ export class ChampionshipsFormComponent implements OnInit {
   championshipsForm: FormGroup;
   formAction: string;
 
-  constructor(private fb: FormBuilder,private _championshipsService:ChampionshipsService,private _dialogRef: MatDialogRef<ChampionshipsFormComponent>,@Inject(MAT_DIALOG_DATA) public data: ChampionshipsFormData) 
+  constructor(private _snackBar: MatSnackBar,private fb: FormBuilder,private _championshipsService:ChampionshipsService,private _dialogRef: MatDialogRef<ChampionshipsFormComponent>,@Inject(MAT_DIALOG_DATA) public data: ChampionshipsFormData) 
   {
     this.formAction = data.toUpdate? "Modifier" : "Ajouter";
 
@@ -37,7 +38,9 @@ export class ChampionshipsFormComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
   onSubmit(championships: Championships){
     if (this.championshipsForm.valid) {
 
@@ -45,12 +48,14 @@ export class ChampionshipsFormComponent implements OnInit {
         championships.id = this.data.championships.id;
         this._championshipsService.put(championships).subscribe((next) => {
           console.log("YES WE DID IT !!! WE HAVE updated A champ");
+          this.openSnackBar("Championships Updated","Nice")
           this.championshipsForm.reset();
           this._dialogRef.close();
         })
       } else {
         this._championshipsService.post(championships).subscribe((next) => {
           console.log("YES WE DID IT !!! WE HAVE ADDED A NEW champ");
+          this.openSnackBar("Championships Created","Nice")
           this.championshipsForm.reset();
           this._dialogRef.close();
         })

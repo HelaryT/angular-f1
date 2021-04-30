@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Drivers } from 'src/app/core/models/drivers';
@@ -21,7 +22,7 @@ export class DriversFormComponent implements OnInit {
   drivers2!: FormGroup;
 
   isEditable = false;
-  constructor(private _formBuilder: FormBuilder,private _activateRoute:ActivatedRoute,private _driversService:DriversService,private _teamsService:TeamsService) {}
+  constructor(private _snackBar: MatSnackBar,private _formBuilder: FormBuilder,private _activateRoute:ActivatedRoute,private _driversService:DriversService,private _teamsService:TeamsService) {}
 
   ngOnInit() {
     this.teamsId = Number(this._activateRoute.snapshot.paramMap.get('id'));
@@ -71,10 +72,12 @@ export class DriversFormComponent implements OnInit {
 
     });
   }
-
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
   onSubmit(drivers : Drivers) {
     this._driversService.post(drivers).subscribe((next) => {
-          
+          this.openSnackBar("Driver Ajouté","Nice");
       console.log("YES WE DID IT !!! WE HAVE ADDED A NEW drivers");
   })
 }
@@ -84,6 +87,7 @@ drivers11(){
 
   this._driversService.post(this.drivers1.value).subscribe((next) => {
     console.log("YES WE DID IT !!! WE HAVE ADDED A NEW drivers");
+    this.openSnackBar("Driver Ajouté","Nice");
 
   })
   }
@@ -94,7 +98,8 @@ drivers22(){
 
   this._driversService.post(this.drivers2.value).subscribe((next) => {     
     console.log("YES WE DID IT !!! WE HAVE ADDED A NEW drivers");
-   
+    this.openSnackBar("Driver Ajouté","Nice");
+
     })
   }
 }
