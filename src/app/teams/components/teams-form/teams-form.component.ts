@@ -16,7 +16,7 @@ import { TeamsService } from 'src/app/core/services/http/teams.service';
 })
 export class TeamsFormComponent implements OnInit {
   teamsId?: number;
-  champsId?: number;
+  champsId!: number;
   teams$? : Observable<Teams[]>;
 
  

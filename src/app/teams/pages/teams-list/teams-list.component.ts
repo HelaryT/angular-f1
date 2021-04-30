@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Championships } from 'src/app/core/models/championships';
+import { ChampionshipsFormData } from 'src/app/core/models/championships-form-data';
 import { Teams } from 'src/app/core/models/teams';
 import { TeamsService } from 'src/app/core/services/http/teams.service';
 

@@ -24,9 +24,7 @@ export class ChampionshipsService {
   getChampionshipsOfTeam(id: number): Observable<Championships> {
     return this._httpClient.get<Championships>(this.endPoint+"/"+id);
   }
-  post(championships: Championships): Observable<Championships>{   
-    console.log(championships.nb_driver);
-    
+  post(championships: Championships): Observable<Championships>{       
     return this._httpClient.post<Championships>(this.endPoint, championships)//fake url enleve le s
   }
 

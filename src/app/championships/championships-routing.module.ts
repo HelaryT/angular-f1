@@ -16,10 +16,6 @@ const routes: Routes = [
         component: ChampionshipsListComponent,
       },
       {
-        path: 'add',
-        component: ChampionshipsFormComponent,
-      },
-      {
         path: ':id',
         component: ChampionshipsDetailComponent,
       },

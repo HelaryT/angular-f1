@@ -3,6 +3,4 @@ export interface Championships {
     name:string;
     logo:string;
     years:number;
-    nb_team:number;
-    nb_driver:number;
 }

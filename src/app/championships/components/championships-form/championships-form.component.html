@@ -1,30 +1,27 @@
-<mat-horizontal-stepper labelPosition="bottom" #stepper>
-  <mat-step [stepControl]="championshipsForm">
-    <form [formGroup]="championshipsForm" (ngSubmit)="ChampionshipFormSend()">
-      <ng-template matStepLabel >Renseigné votre league</ng-template>
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="name" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>years</mat-label>
-        <input matInput type="number" placeholder="Last name, First name" formControlName="years" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>logo</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="logo" required>
-      </mat-form-field>
-      <div>
-        <button mat-button type="submit" matStepperNext>Next</button>
-      </div>
+    <form [formGroup]="championshipsForm" (ngSubmit)="onSubmit(championshipsForm.value)">
+      <h2 mat-dialog-title>Championship FORM</h2>
+      <mat-dialog-content class="mat-typography">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Championship name</mat-label>
+            <input matInput type="text" formControlName="name" placeholder="F..." required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Championship name</mat-label>
+            <input matInput type="number" formControlName="years" placeholder="2021" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Championship Logo</mat-label>
+            <input matInput type="text" placeholder="Link to the logo" formControlName="logo" required>
+          </mat-form-field>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button type="submit" cdkFocusInitial [disabled]="!championshipsForm.valid">{{formAction}}</button>
+      </mat-dialog-actions>
     </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Retour a la </button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
