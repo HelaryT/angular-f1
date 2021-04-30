@@ -32,6 +32,8 @@ export class TeamEditComponent implements OnInit {
       car:[data.teams.car, [Validators.required,this.noWhitespaceValidator]],
       teampoint:[data.teams.teampoint, [Validators.required]],
       teamchampionships:[data.teams.teamchampionships, [Validators.required]],
+      championshipid:[data.teams.championshipid, [Validators.required]]
+
     }); 
   }
 

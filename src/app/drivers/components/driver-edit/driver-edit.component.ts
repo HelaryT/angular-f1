@@ -37,7 +37,8 @@ export class DriverEditComponent implements OnInit {
       city:[data.drivers.city, [Validators.required,this.noWhitespaceValidator]],
       join_f1:[data.drivers.join_f1, [Validators.required]],
       team_color:[data.drivers.team_color, [Validators.required]],
-      profile:[data.drivers.profile, [Validators.required]]
+      profile:[data.drivers.profile, [Validators.required]],
+      championshipid:[data.drivers.championshipid, [Validators.required]]
 
     }); 
    }
