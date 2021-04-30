@@ -20,13 +20,21 @@ export class DriversService {
   getOrder(id:number): Observable<Drivers[]> {
     return this._httpClient.get<Drivers[]>(this.endPoint+'?_sort=points&_order=desc&championshipsid='+id);
   }
-
+  put(drivers: Drivers,id:number): Observable<Drivers>{
+    return this._httpClient.put<Drivers>(this.endPoint+"/"+id, drivers)
+  }
   getById(id: number): Observable<Drivers> {
     return this._httpClient.get<Drivers>(this.endPoint+"/"+id);
+  }
+  getByTeams(id:number): Observable<Drivers[]> {  
+    return this._httpClient.get<Drivers[]>(this.endPoint+"?teamsid="+id);
   }
 
   post(drivers: Drivers): Observable<Drivers>{      
     return this._httpClient.post<Drivers>(this.endPoint, drivers);
+  }
+  delete(drivers: Drivers): Observable<Drivers>{
+    return this._httpClient.delete<Drivers>(this.endPoint+"/"+drivers.id)
   }
   
 }

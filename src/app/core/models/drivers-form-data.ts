@@ -1,4 +1,4 @@
-import { Drivers} from "./drivers";
+import { Drivers } from "./drivers";
 
 export interface DriversFormData {
     toUpdate: boolean;

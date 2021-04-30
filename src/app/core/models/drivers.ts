@@ -13,4 +13,6 @@ export interface Drivers {
     dob:string;
     picture:string;
     flag:string;
+    join_f1:number;
+    city:string;
 }

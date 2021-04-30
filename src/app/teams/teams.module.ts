@@ -6,6 +6,7 @@ import { TeamsListComponent } from './pages/teams-list/teams-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { TeamsRoutingModule } from './teams-routing.module';
 import { TeamsFormComponent } from './components/teams-form/teams-form.component';
+import { TeamEditComponent } from './components/team-edit/team-edit.component';
 
 
 
@@ -14,7 +15,8 @@ import { TeamsFormComponent } from './components/teams-form/teams-form.component
     TeamsComponent,
     TeamsDetailComponent,
     TeamsListComponent,
-    TeamsFormComponent
+    TeamsFormComponent,
+    TeamEditComponent
   ],
   imports: [
     CommonModule,SharedModule,TeamsRoutingModule

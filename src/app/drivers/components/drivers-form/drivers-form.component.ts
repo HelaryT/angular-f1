@@ -42,6 +42,10 @@ export class DriversFormComponent implements OnInit {
       dob: ['', Validators.required],
       picture: ['', Validators.required],
       flag: ['', Validators.required],
+      city: ['', Validators.required],
+      profile: ['', Validators.required],
+      join_f1: ['', Validators.required],
+      age: ['', Validators.required],
       teamsid: [this.teamsId, Validators.required],
       championshipsid: [2, Validators.required]
 
@@ -58,6 +62,10 @@ export class DriversFormComponent implements OnInit {
       dob: ['', Validators.required],
       picture: ['', Validators.required],
       flag: ['', Validators.required],
+      city: ['', Validators.required],
+      profile: ['', Validators.required],
+      join_f1: ['', Validators.required],
+      age: ['', Validators.required],
       teamsid: [this.teamsId, Validators.required],
       championshipsid: [2, Validators.required]
 

@@ -21,10 +21,13 @@ export class TeamsService {
     return this._httpClient.get<Teams[]>(this.endPoint+'?_sort=points&_order=desc &championshipid='+id);
   }
 
-  getById(id: number): Observable<Teams[]> {
-    return this._httpClient.get<Teams[]>(this.endPoint+"/"+id);
+  getById(id: number): Observable<Teams> {
+    return this._httpClient.get<Teams>(this.endPoint+"/"+id);
   }
   post(teams: Teams): Observable<Teams>{      
     return this._httpClient.post<Teams>(this.endPoint, teams);
+  }
+  delete(teams: Teams): Observable<Teams>{
+    return this._httpClient.delete<Teams>(this.endPoint+"/"+teams.id)
   }
 }

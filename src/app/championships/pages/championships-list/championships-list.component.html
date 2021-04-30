@@ -1,50 +1,49 @@
 <div class="viewport" >
-    <div fxLayout="column " fxLayoutAlign="center center">
-    <div *ngFor = "let championship of championships$ | async ">
-        <div fxLayout="column" >
-            <mat-card class="container">
-                <div fxLayoutAlign="end end">
-                    <img mat-card-image src="{{championship.logo}}" alt="" width="350">
-
-                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                        <mat-icon>more_vert</mat-icon>
-                      </button>
-                      <mat-menu #menu="matMenu">
-                        <button mat-menu-item (click)="delete(championship)" >
-                            <mat-icon>delete</mat-icon>
-                          <span>Delete</span>
+    <div fxLayout="row " fxLayoutAlign="center center">
+        <div *ngFor = "let championship of championships$ | async ">
+            <div fxLayout="column" >
+                <mat-card class="container">
+                    <div fxLayoutAlign="end end">
+                        <img mat-card-image src="{{championship.logo}}" alt="" width="350">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <mat-icon>more_vert</mat-icon>
                         </button>
-                        <button mat-menu-item >
-                            <mat-icon>edit</mat-icon>
-                          <span>Edit</span>
-                        </button>
-                      </mat-menu>
-                </div>
-                <mat-card-content>
-                    <mat-card-title>{{championship.name}}</mat-card-title>
-                    <mat-card-subtitle>{{championship.years}}</mat-card-subtitle>
-                    <p>Everything you need to know about {{championship.name}}.</p>
-                </mat-card-content>
-                <mat-card-actions fxLayout="row" fxLayoutAlign="space-evenly none" >
-                    <a routerLink="{{championship.id}}/teams">
-                        <button fxFlex mat-raised-button color="primary">TEAMS</button>
-                    </a>
-                    <a routerLink="{{championship.id}}/leaderboards">
-                        <button mat-raised-button color="primary">LEADERBOARD</button>
-                    </a>
-                    <a routerLink="{{championship.id}}/drivers">
-                        <button fxFlex mat-raised-button color="primary">DRIVERS</button>
-                    </a>
-                </mat-card-actions>
-              </mat-card>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="delete(championship)" >
+                                <mat-icon>delete</mat-icon>
+                            <span>Delete</span>
+                            </button>
+                            <button mat-menu-item >
+                                <mat-icon>edit</mat-icon>
+                            <span>Edit</span>
+                            </button>
+                        </mat-menu>
+                    </div>
+                    <mat-card-content>
+                        <mat-card-title>{{championship.name}}</mat-card-title>
+                        <mat-card-subtitle>{{championship.years}}</mat-card-subtitle>
+                        <p>Everything you need to know about {{championship.name}}.</p>
+                    </mat-card-content>
+                    <mat-card-actions fxLayout="row" fxLayoutAlign="space-evenly none" >
+                        <a routerLink="{{championship.id}}/teams">
+                            <button fxFlex mat-raised-button color="primary">TEAMS</button>
+                        </a>
+                        <a routerLink="{{championship.id}}/leaderboards">
+                            <button mat-raised-button color="primary">LEADERBOARD</button>
+                        </a>
+                        <a routerLink="{{championship.id}}/drivers">
+                            <button fxFlex mat-raised-button color="primary">DRIVERS</button>
+                        </a>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
         </div>
     </div>
-</div>
-<div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
-    <a class="button-add" routerLink="add">
-        <button router mat-fab color="primary">
-            <mat-icon>add</mat-icon>
-          </button>
-    </a>
+    <div fxLayout="row" fxLayoutAlign="end end" class="example-button-container">
+        <a class="button-add" routerLink="add">
+            <button router mat-fab color="primary">
+                <mat-icon>add</mat-icon>
+            </button>
+        </a>
   </div>
 </div>    

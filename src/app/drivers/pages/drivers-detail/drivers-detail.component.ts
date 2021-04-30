@@ -25,4 +25,9 @@ export class DriversDetailComponent implements OnInit {
   fetchData(id: number): void {
     this.drivers$ = this._driversService.getById(id);
   }
+
+  delete(driver: Drivers){
+    this._driversService.delete(driver).subscribe(next => {
+    })
+  }
 }

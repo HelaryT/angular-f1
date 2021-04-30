@@ -16,6 +16,12 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+import {MatDividerModule} from '@angular/material/divider'; 
+
+
+import {MatListModule} from '@angular/material/list'; 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+
   @NgModule({
   declarations: [
     NotFoundComponent
@@ -37,7 +43,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    MatListModule
     
   ]
 })

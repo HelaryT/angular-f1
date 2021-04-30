@@ -5,6 +5,7 @@ import { DriversComponent } from './drivers.component';
 import { DriversListComponent } from './pages/drivers-list/drivers-list.component';
 import { DriversDetailComponent } from './pages/drivers-detail/drivers-detail.component';
 import { DriversFormComponent } from './components/drivers-form/drivers-form.component';
+import { DriverEditComponent } from './components/driver-edit/driver-edit.component';
 
 const routes: Routes = [
   {
@@ -20,8 +21,16 @@ const routes: Routes = [
         component: DriversFormComponent,
       },
       {
+        path: ':id/edit',
+        component: DriverEditComponent,
+      },
+      {
         path: 'drivers',
         component: DriversListComponent,
+      },
+      {
+        path: 'drivers/:id',
+        component: DriversDetailComponent,
       },
       {
         path: ':id',

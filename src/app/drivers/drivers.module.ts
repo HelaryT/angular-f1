@@ -6,6 +6,7 @@ import { DriversDetailComponent } from './pages/drivers-detail/drivers-detail.co
 import { DriversRoutingModule } from './drivers-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { DriversFormComponent } from './components/drivers-form/drivers-form.component';
+import { DriverEditComponent } from './components/driver-edit/driver-edit.component';
 
 
 
@@ -14,7 +15,8 @@ import { DriversFormComponent } from './components/drivers-form/drivers-form.com
     DriversComponent,
     DriversListComponent,
     DriversDetailComponent,
-    DriversFormComponent
+    DriversFormComponent,
+    DriverEditComponent
   ],
   imports: [
     CommonModule,DriversRoutingModule,SharedModule

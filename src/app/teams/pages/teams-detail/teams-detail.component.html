@@ -1,5 +1,38 @@
 <div class="viewport">
-
-    <p>teams-detail works!</p>
-
+    <div *ngIf="teams$ | async as team;">
+        <mat-list>
+            <mat-list-item fxLayout="row" fxLayoutAlign="end start">
+                <button mat-raised-button routerLink="edit" color="accent" ><mat-icon>edit</mat-icon>EDIT</button>
+                <button mat-raised-button (click)="delete(team)" color="warn"><mat-icon>delete</mat-icon>DELETE</button>
+                <button mat-raised-button routerLink=".."  >Back</button>
+            </mat-list-item>
+               <mat-divider style="border : solid 1px {{team.team_color}};"></mat-divider>
+        </mat-list>
+        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+            <div>
+                <div *ngFor = "let driver of drivers$ | async " >
+                    <mat-card  class="example-card" style="border: solid 0.5px {{driver.team_color}};">
+                        <mat-card-header >
+                          <div mat-card-avatar class="example-header-image">
+                              <img src="{{driver.profile}}" alt="" width="40" height="40">
+                            </div>
+                            <mat-card-title>{{driver.name}}</mat-card-title>
+                            <mat-card-subtitle>{{driver.drivernb}} - <img class="flag" src="{{driver.flag}}" alt="" width="15" ></mat-card-subtitle>
+                        </mat-card-header >
+                        <div fxLayout="row" fxLayoutAlign="end end"> 
+                            <a routerLink="drivers/{{driver.id}}" >
+                                <button  mat-raised-button style="background-color: {{driver.team_color}};">INFOS</button>
+                            </a>
+                        </div>
+                      </mat-card>
+                </div>
+            </div>
+            <div  class="margin-top" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="75px">
+                <h1>{{team.name}} - <img class="flag" src="{{team.flag}}" width="60"></h1>
+                <img src="{{team.logo}}" alt="" width="309" height="174">
+                <img src="{{team.car}}" alt="">
+            </div>
+                <h1>bad</h1>
+        </div> 
+    </div>
 </div>

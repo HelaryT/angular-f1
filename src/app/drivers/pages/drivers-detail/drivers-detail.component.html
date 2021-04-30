@@ -1,9 +1,50 @@
 <div class="viewport">
-    <div fxLayout="row" fxLayoutAlign="start center" > 
-        <div *ngIf="drivers$ | async as driver;">
-            {{driver.name}}
-            <img src="https://www.formula1.com/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png.transform/2col/image.png" alt="">
-        </div>
+    <div *ngIf="drivers$ | async as driver;">
+        <mat-list>
+                <mat-list-item fxLayout="row" fxLayoutAlign="end start">
+                    <button mat-raised-button routerLink="edit" color="accent" ><mat-icon>edit</mat-icon>EDIT</button>
+                    <button mat-raised-button (click)="delete(driver)" color="warn"><mat-icon>delete</mat-icon>DELETE</button>
+                    <button mat-raised-button routerLink=".."  >Back</button>
+
+                </mat-list-item>
+                <mat-divider style="border : solid 1px {{driver.team_color}};"></mat-divider>
+        </mat-list>
+        
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="400px">
+            <div fxLayout="row" fxLayoutAlign="start none">
+                <img src="https://www.f1-fansite.com/wp-content/uploads/2020/03/Leiws-Hamilton-2020.png" alt="" >
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" class="margin-top">
+                <h1>{{driver.name}}</h1>
+                <h1>{{driver.drivernb}} - <img class="flag" src="{{driver.flag}}" width="45"></h1>
+                <p>Running for {{driver.team_name}}</p>
+                <div  fxLayout="column" fxLayoutAlign="start none" fxLayoutGap="50px"> 
+                    <div class="margin-top" class="container" style="border-top: solid 2px {{driver.team_color}};">
+                        <div fxLayout="column"  fxLayoutAlign="start start">
+                            <h2 style="border-bottom: solid 2px {{driver.team_color}}">Life</h2>
+                        </div>
+                        <div fxLayout="column"  fxLayoutAlign="start start">
+                            <p>Born in {{driver.country}}, driver.city the {{driver.dob}}.</p>
+                            <p>{{driver.name}} find passion in racing starting with karting.</p>
+                            <p>As he progress troughout the years. In driverjoin_f1, he finally joined what he wished the championship.name.</p>
+                            <p>Now driver.age he's giving it everything at {{driver.team_name}}.</p>
+                        </div>
+                    </div>
+                    <div class="container" style="border-top: solid 2px {{driver.team_color}}">
+                        <div fxLayout="column" fxLayoutAlign="start start">
+                            <h2 style="border-bottom: solid 2px {{driver.team_color}}">Carrer</h2>
+                        </div>
+                        <div fxLayout="column"  fxLayoutAlign="start start">
+                            <p>{{driver.name}} runs quite a few race, {{driver.gp}} to be exact.</p>
+                            <p>In those race he managed to find and score as {{driver.points}} points.</p>
+                            <p>Ultimately, he finished on the podium {{driver.podiums}} times.</p>
+                            <p>But most importantly he won the greatest prize of all. Be the champion of the world {{driver.champion}} times.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        
     </div> 
-</div>
+</div>  
 

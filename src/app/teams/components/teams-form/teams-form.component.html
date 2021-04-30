@@ -1,58 +1,74 @@
 <div class="viewport">
   <mat-horizontal-stepper>
-    <mat-step [stepControl]="teamsForm" optional>
+    <mat-step [stepControl]="teamsForm">
       <form [formGroup]="teamsForm" (ngSubmit)="teamsFormSend()">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-form-field>
-          <mat-label>Address</mat-label>
-          <input [(ngModel)]="name" matInput formControlName="name" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>headchief</mat-label>
-          <input [(ngModel)]="headchief" matInput formControlName="headchief" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>headtech</mat-label>
-          <input [(ngModel)]="headtech" matInput formControlName="headtech" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>base</mat-label>
-          <input [(ngModel)]="base" matInput formControlName="base" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>flag</mat-label>
-          <input [(ngModel)]="flag" matInput formControlName="flag" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>startyear</mat-label>
-          <input [(ngModel)]="startyear" matInput type="number" formControlName="startyear" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>logo</mat-label>
-          <input [(ngModel)]="logo" matInput  formControlName="logo" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>teampoint</mat-label>
-          <input [(ngModel)]="teampoint" matInput type="number" formControlName="teampoint" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <h4>mat-select</h4>
-        
-        <div>
-          <button mat-button type="submit"  >Crée cette équipe</button>
-        </div>  
+        <ng-template matStepLabel>Fill out Team Info</ng-template>
+        <div fxLayout="column" fxLayoutAlign="start center" >
+            <div fxLayout="column" fxLayoutAlign="center center">
+              <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Team name</mat-label>
+                  <input [(ngModel)]="name" matInput type="text" placeholder="Name..." formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Siege </mat-label>
+                  <input [(ngModel)]="base" matInput formControlName="base" placeholder="Great Britain" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>First Saison</mat-label>
+                  <input [(ngModel)]="startyear" matInput type="number" formControlName="startyear" placeholder="2021..." required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>flag <mat-icon>flag</mat-icon> </mat-label>
+                  <input [(ngModel)]="flag" matInput formControlName="flag" placeholder="Link to the flag" required>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Chief Exec</mat-label>
+                  <input [(ngModel)]="headchief" matInput type="text" placeholder="Chief Exec..." formControlName="headchief" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Chief Tech </mat-label>
+                  <input [(ngModel)]="headtech" matInput formControlName="headtech" placeholder="Head Tech..." required>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px">
+              <mat-form-field appearance="outline">
+                <mat-label>Team Logo</mat-label>
+                <input [(ngModel)]="logo" matInput  formControlName="logo" placeholder="Link to the logo" required>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Team Color</mat-label>
+                <input [(ngModel)]="team_color" matInput  formControlName="team_color" placeholder="Hexcode..." required>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Team Car</mat-label>
+                <input [(ngModel)]="car" matInput  formControlName="car" placeholder="Link to the car" required>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px">
+              <mat-form-field appearance="outline">
+                <mat-label>Team Points</mat-label>
+                <input [(ngModel)]="teampoint" matInput type="number" formControlName="teampoint" placeholder="1000..." required>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Winning Championship</mat-label>
+                <input [(ngModel)]="teamchampionships" matInput type="number" formControlName="teamchampionships" placeholder="7..." required>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px" >
+              <button mat-raised-button color="primary" type="submit"><mat-icon>done</mat-icon>Crée cette équipe</button>
+              <button mat-raised-button color="primary" routerLink=".." matStepperPrevious>Back to teams</button>
+            </div>
+          </div>               
       </form>
-      <button mat-button matStepperNext  >Nextr</button>
-    
-      <button mat-button (click)="handleClear()">Crée une nouvelle teams</button>
-    
-    </mat-step> 
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-button matStepperPrevious>Retour a la </button>
-
+      <div fxLayout="column " fxLayoutAlign="center center" fxLayoutGap="10px" >
+        <button mat-raised-button color="warn" (click)="handleClear()">Crée une nouvelle teams</button>
       </div>
-    </mat-step>
+    </mat-step> 
     </mat-horizontal-stepper>
 </div>
+
+

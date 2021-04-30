@@ -31,17 +31,22 @@ export class TeamsFormComponent implements OnInit {
   logo= '';
   teampoint= '';
   teamchampionships= '';
+  team_color='';
+  car='';
 
   handleClear(){
-    this.name = ' ';  
-    this.headchief = ' ';  
-    this.headtech = ' ';  
-    this.flag = ' ';  
-    this.startyear = ' ';  
-    this.teampoint = ' ';  
-    this.logo = ' ';  
-    this.base = ' ';  
-    this.teamchampionships = ' ';  
+    this.name = '';  
+    this.headchief = '';  
+    this.headtech = '';  
+    this.flag = '';  
+    this.startyear = '';  
+    this.teampoint = '';  
+    this.logo = '';  
+    this.base = '';  
+    this.teamchampionships = '';  
+    this.team_color = '';  
+    this.car = '';    
+
 
   }
 
@@ -64,24 +69,22 @@ export class TeamsFormComponent implements OnInit {
       flag:['', Validators.required],
       startyear:['', Validators.required],
       logo:['', Validators.required],
+      car:['', Validators.required],
+      team_color:['', Validators.required],
       teampoint:['', Validators.required],
       teamchampionships:['', Validators.required],
       championshipid:[this.champsId, Validators.required]
     });
   }
 
-  onSubmit(drivers : Drivers) {
-    this._driversService.post(drivers).subscribe((next) => {
-          
-      console.log("YES WE DID IT !!! WE HAVE ADDED A NEW drivers");
-  })
-}
+
+
 
 teamsFormSend(){
   console.log(this.teamsForm.value);
-  this._driversService.post(this.teamsForm.value).subscribe((next) => {
+  this._teamsService.post(this.teamsForm.value).subscribe((next) => {
           
-    console.log("YES WE DID IT !!! WE HAVE ADDED A NEW drivers");
+    console.log("YES WE DID IT !!! WE HAVE ADDED A NEW team");
 })
 }
 

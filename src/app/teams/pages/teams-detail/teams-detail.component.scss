@@ -1,16 +1,46 @@
 .viewport{
-    height: 85vh;
-  }
-  
- 
-  
-  h1{
-    font-weight: 700;
-  }
-  p{
-    font-size: 18px;
-  }
+  height: 85vh;
+}
 
-  a{
-      text-decoration: none;
-  }
+.container{
+width: 500px;
+height: 200px;
+
+.example-card {
+  width:500px;
+  height: 160px;
+  background-color: transparent;
+}
+
+.example-header-image {
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+
+}
+button{
+  color: black;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+h1{
+  font-weight: 900;
+  font-size: 48px;
+}
+
+
+.bar-team{
+  display: inline-block;
+  width: 2px;
+  height: auto;
+  margin-left: 20px;
+}
+.flag{
+border-radius: 3px;
+border: solid 1px black;
+}
+.margin-top
+{
+margin-top: 20px;
+}

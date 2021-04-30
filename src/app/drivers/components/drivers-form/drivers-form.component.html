@@ -4,112 +4,149 @@
         <mat-step [stepControl]="drivers1">
           <form [formGroup]="drivers1" (ngSubmit)="drivers11()">
             <ng-template matStepLabel  >Fill out your first driver</ng-template>
-            <div fxLayout="row" fxLayoutAlign="space-evenly start">
-                <mat-form-field  >
-                    <mat-label>Driver Name</mat-label>
-                    <input matInput placeholder="Last name, First name" formControlName="name" required>
-                  </mat-form-field>
-                  <mat-form-field>
-                      <mat-label>Driver Number</mat-label>
-                      <input matInput type="number" placeholder="His number" formControlName="drivernb" required>
-                    </mat-form-field>
-                    <mat-form-field  >
-                        <mat-label>Country</mat-label>
-                        <input matInput placeholder="Last name, First name" formControlName="country" required>
-                      </mat-form-field>
-                      <mat-form-field>
-                          <mat-label>podium</mat-label>
-                          <input matInput type="number" placeholder="His number" formControlName="podiums" required>
-                        </mat-form-field>
-                        <mat-form-field>
-                            <mat-label>point</mat-label>
-                            <input matInput type="number" placeholder="His number" formControlName="points" required>
-                          </mat-form-field>
-                          <mat-form-field>
-                            <mat-label>podium</mat-label>
-                            <input matInput type="number" placeholder="His number" formControlName="gp" required>
-                          </mat-form-field>
-                          <mat-form-field>
-                            <mat-label>podium</mat-label>
-                            <input matInput type="number" placeholder="His number" formControlName="champion" required>
-                          </mat-form-field>
-                          <mat-form-field  >
-                            <mat-label>Country</mat-label>
-                            <input matInput placeholder="Last name, First name" formControlName="dob" required>
-                          </mat-form-field>
-                          <mat-form-field  >
-                            <mat-label>Country</mat-label>
-                            <input matInput placeholder="Last name, First name" formControlName="flag" required>
-                          </mat-form-field>
-                          <mat-form-field  >
-                            <mat-label>Country</mat-label>
-                            <input matInput placeholder="Last name, First name" formControlName="country" required>
-                          </mat-form-field>
-                      <div>
-                    <button mat-button matStepperNext type="submit" cdkFocusInitial>Send and Next</button>
-                  </div>
-            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Name</mat-label>
+                  <input matInput type="text" placeholder="Last name, First name" formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Picture</mat-label>
+                  <input matInput type="text" placeholder="link to a picture" formControlName="picture" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Profile Picture</mat-label>
+                  <input matInput type="text" placeholder="link to a profile picture" formControlName="profile" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Number</mat-label>
+                  <input matInput type="number" placeholder="His car number" formControlName="drivernb" required>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Country</mat-label>
+                  <input matInput type="text" placeholder="His country" formControlName="country" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver City</mat-label>
+                  <input matInput type="text" placeholder="His city" formControlName="city" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Date Of Birth</mat-label>
+                  <input matInput type="text" placeholder="His DOB" formControlName="dob" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Age</mat-label>
+                  <input matInput type="number" placeholder="His age" formControlName="age" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Flag</mat-label>
+                  <input matInput type="text" placeholder="A link to the country Flag" formControlName="flag" required>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>First saison of F1</mat-label>
+                  <input matInput type="number" placeholder="His number champion" formControlName="join_f1" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Number of GP</mat-label>
+                  <input matInput type="number" placeholder="His number gp" formControlName="gp" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Number of Points</mat-label>
+                  <input matInput type="number" placeholder="His number points" formControlName="points" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Number of podiums</mat-label>
+                  <input matInput type="number" placeholder="His number podiums" formControlName="podiums" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Championship Winner</mat-label>
+                  <input matInput type="number" placeholder="His number champion" formControlName="champion" required>
+                </mat-form-field>
+              </div>
+              <button mat-raised-button matStepperNext type="submit" color="primary" cdkFocusInitial><mat-icon>done</mat-icon>Save and Next</button>
+            </div>                   
           </form>
         </mat-step>
-        <mat-step [stepControl]="drivers2" optional>
+        <mat-step [stepControl]="drivers2" >
           <form [formGroup]="drivers2" (ngSubmit)="drivers22()">
             <ng-template matStepLabel>Fill out your second driver</ng-template>
-            <div fxLayout="row" fxLayoutAlign="space-evenly start">
-              <mat-form-field  >
+            <div fxLayout="column" fxLayoutAlign="center center">
+              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
                   <mat-label>Driver Name</mat-label>
-                  <input matInput placeholder="Last name, First name" formControlName="name" required>
+                  <input matInput type="text" placeholder="Last name, First name" formControlName="name" required>
                 </mat-form-field>
-                <mat-form-field>
-                    <mat-label>Driver Number</mat-label>
-                    <input matInput type="number" placeholder="His number" formControlName="drivernb" required>
-                  </mat-form-field>
-                  <mat-form-field  >
-                      <mat-label>Country</mat-label>
-                      <input matInput placeholder="Last name, First name" formControlName="country" required>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>podium</mat-label>
-                        <input matInput type="number" placeholder="His number" formControlName="podiums" required>
-                      </mat-form-field>
-                      <mat-form-field>
-                          <mat-label>point</mat-label>
-                          <input matInput type="number" placeholder="His number" formControlName="points" required>
-                        </mat-form-field>
-                        <mat-form-field>
-                          <mat-label>podium</mat-label>
-                          <input matInput type="number" placeholder="His number" formControlName="gp" required>
-                        </mat-form-field>
-                        <mat-form-field>
-                          <mat-label>podium</mat-label>
-                          <input matInput type="number" placeholder="His number" formControlName="champion" required>
-                        </mat-form-field>
-                        <mat-form-field  >
-                          <mat-label>Country</mat-label>
-                          <input matInput placeholder="Last name, First name" formControlName="dob" required>
-                        </mat-form-field>
-                        <mat-form-field  >
-                          <mat-label>Country</mat-label>
-                          <input matInput placeholder="Last name, First name" formControlName="flag" required>
-                        </mat-form-field>
-                        <mat-form-field  >
-                          <mat-label>Country</mat-label>
-                          <input matInput placeholder="Last name, First name" formControlName="country" required>
-                        </mat-form-field>
-                    <div>
-                  <button mat-button matStepperNext type="submit" cdkFocusInitial>Send and Next</button>
-                </div>
-          </div>
-        </form>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Picture</mat-label>
+                  <input matInput type="text" placeholder="link to a picture" formControlName="picture" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Profile Picture</mat-label>
+                  <input matInput type="text" placeholder="link to a profile picture" formControlName="profile" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Number</mat-label>
+                  <input matInput type="number" placeholder="His car number" formControlName="drivernb" required>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Country</mat-label>
+                  <input matInput type="text" placeholder="His country" formControlName="country" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver City</mat-label>
+                  <input matInput type="text" placeholder="His city" formControlName="city" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Date Of Birth</mat-label>
+                  <input matInput type="text" placeholder="His DOB" formControlName="dob" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Age</mat-label>
+                  <input matInput type="number" placeholder="His age" formControlName="age" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Driver Flag</mat-label>
+                  <input matInput type="text" placeholder="A link to the country Flag" formControlName="flag" required>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>First saison of F1</mat-label>
+                  <input matInput type="number" placeholder="His number champion" formControlName="join_f1" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Number of GP</mat-label>
+                  <input matInput type="number" placeholder="His number gp" formControlName="gp" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Number of Points</mat-label>
+                  <input matInput type="number" placeholder="His number points" formControlName="points" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Number of podiums</mat-label>
+                  <input matInput type="number" placeholder="His number podiums" formControlName="podiums" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Championship Winner</mat-label>
+                  <input matInput type="number" placeholder="His number champion" formControlName="champion" required>
+                </mat-form-field>
+              </div>
+              <button mat-raised-button matStepperNext type="submit" color="primary" cdkFocusInitial><mat-icon>done</mat-icon>Save and Next</button>
+            </div>                   
+          </form>
       </mat-step>
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
-          <p>Both of the driver has been created. You can edit them to insert the rest of the informations.</p>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-            <button routerLink="/championships" mat-button >Go back to teams</button>
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <p>Both of the driver has been created. You can edit them to insert the rest of the informations.</p>
+            <button routerLink=".." mat-raised-button color="primary" >See the teams détails</button>
           </div>
         </mat-step>
       </mat-horizontal-stepper>
-    </div>
-    {{teamsId}}
+    </div>  
