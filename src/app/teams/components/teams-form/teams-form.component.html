@@ -59,7 +59,7 @@
               </mat-form-field>
             </div>
             <div fxLayout="row " fxLayoutAlign="center center" fxLayoutGap="10px" >
-              <button mat-raised-button color="primary" type="submit"><mat-icon>done</mat-icon>Crée cette équipe</button>
+              <button mat-raised-button [disabled]="!teamsForm.valid" color="primary" type="submit"><mat-icon>done</mat-icon>Crée cette équipe</button>
               <button mat-raised-button color="primary" routerLink=".." matStepperPrevious>Back to teams</button>
             </div>
           </div>               

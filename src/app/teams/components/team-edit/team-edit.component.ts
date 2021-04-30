@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Drivers } from 'src/app/core/models/drivers';
@@ -25,18 +25,17 @@ export class TeamEditComponent implements OnInit {
       this.fetchData(this.teamId);
     }
     this.teamsForm = this.fb.group({
-      name:['', [Validators.required]],
-      headchief:['', [Validators.required]],
-      headtech:['', [Validators.required]],
-      base:['', [Validators.required]],
-      flag:['', [Validators.required]],
-      gp:['', [Validators.required]],
-      startyear:['', [Validators.required]],
-      logo:['', [Validators.required]],
-      car:['', [Validators.required]],
-      teampoint:['', [Validators.required]],
-      teamchampionships:['', [Validators.required]],
-
+      name:['', Validators.required,this.noWhitespaceValidator],
+      headchief:['', Validators.required,this.noWhitespaceValidator],
+      headtech:['', Validators.required,this.noWhitespaceValidator],
+      base:['', Validators.required,this.noWhitespaceValidator],
+      flag:['', Validators.required,this.noWhitespaceValidator],
+      startyear:['', Validators.required],
+      logo:['', Validators.required,this.noWhitespaceValidator],
+      car:['', Validators.required,this.noWhitespaceValidator],
+      team_color:['', Validators.required,this.noWhitespaceValidator],
+      teampoint:['', Validators.required,this.noWhitespaceValidator],
+      teamchampionships:['', Validators.required],
     }); 
   }
 
@@ -46,8 +45,17 @@ export class TeamEditComponent implements OnInit {
   }
 
   onSubmit(teams: Teams) {
+    if (this.teamsForm.valid) {
     this._teamsService.put(teams,this.teamId).subscribe((next) => {
       console.log("YES WE DID IT !!! WE HAVE updated A STUDENT");
     })
+    }
+  }
+
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+  
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
 }

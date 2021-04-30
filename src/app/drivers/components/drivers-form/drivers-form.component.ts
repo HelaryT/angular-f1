@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Drivers } from 'src/app/core/models/drivers';
@@ -32,42 +32,42 @@ export class DriversFormComponent implements OnInit {
 
 
     this.drivers1 = this._formBuilder.group({
-      name: ['', Validators.required],
-      country: ['', Validators.required],
-      podiums: ['', Validators.required],
-      drivernb: ['', Validators.required],
-      points: ['', Validators.required],
-      gp: ['', Validators.required],
-      champion: ['', Validators.required],
-      dob: ['', Validators.required],
-      picture: ['', Validators.required],
-      flag: ['', Validators.required],
-      city: ['', Validators.required],
-      profile: ['', Validators.required],
-      join_f1: ['', Validators.required],
-      age: ['', Validators.required],
-      teamsid: [this.teamsId, Validators.required],
-      championshipsid: [2, Validators.required]
+      name: ['', [Validators.required,this.noWhitespaceValidator]],
+      country: ['', [Validators.required,this.noWhitespaceValidator]],
+      podiums: ['', [Validators.required]],
+      drivernb: ['', [Validators.required]],
+      points: ['', [Validators.required]],
+      gp: ['', [Validators.required]],
+      champion: ['', [Validators.required]],
+      dob: ['', [Validators.required,this.noWhitespaceValidator]],
+      picture: ['', [Validators.required,this.noWhitespaceValidator]],
+      flag: ['', [Validators.required,this.noWhitespaceValidator]],
+      city: ['', [Validators.required,this.noWhitespaceValidator]],
+      profile: ['', [Validators.required,this.noWhitespaceValidator]],
+      join_f1: ['', [Validators.required]],
+      age: ['', [Validators.required]],
+      teamsid: [this.teamsId, [Validators.required]],
+      championshipsid: [2, [Validators.required]]
 
 
     });
     this.drivers2 = this._formBuilder.group({
-      name: ['', Validators.required],
-      country: ['', Validators.required],
-      podiums: ['', Validators.required],
-      drivernb: ['', Validators.required],
-      points: ['', Validators.required],
-      gp: ['', Validators.required],
-      champion: ['', Validators.required],
-      dob: ['', Validators.required],
-      picture: ['', Validators.required],
-      flag: ['', Validators.required],
-      city: ['', Validators.required],
-      profile: ['', Validators.required],
-      join_f1: ['', Validators.required],
-      age: ['', Validators.required],
-      teamsid: [this.teamsId, Validators.required],
-      championshipsid: [2, Validators.required]
+      name: ['', [Validators.required,this.noWhitespaceValidator]],
+      country: ['', [Validators.required,this.noWhitespaceValidator]],
+      podiums: ['', [Validators.required]],
+      drivernb: ['', [Validators.required]],
+      points: ['', [Validators.required]],
+      gp: ['', [Validators.required]],
+      champion: ['', [Validators.required]],
+      dob: ['', [Validators.required,this.noWhitespaceValidator]],
+      picture: ['', [Validators.required,this.noWhitespaceValidator]],
+      flag: ['', [Validators.required,this.noWhitespaceValidator]],
+      city: ['', [Validators.required,this.noWhitespaceValidator]],
+      profile: ['', [Validators.required,this.noWhitespaceValidator]],
+      join_f1: ['', [Validators.required]],
+      age: ['', [Validators.required]],
+      teamsid: [this.teamsId, [Validators.required]],
+      championshipsid: [2, [Validators.required]]
 
     });
   }
@@ -80,23 +80,34 @@ export class DriversFormComponent implements OnInit {
 }
 
 drivers11(){
-  console.log(this.drivers1.value);
+  if (this.drivers1.valid) {
+
   this._driversService.post(this.drivers1.value).subscribe((next) => {
-          
     console.log("YES WE DID IT !!! WE HAVE ADDED A NEW drivers");
-})
+
+  })
+  }
 }
 
 drivers22(){
-  console.log(this.drivers2.value);
-  this._driversService.post(this.drivers2.value).subscribe((next) => {
-          
+  if (this.drivers2.valid) {
+
+  this._driversService.post(this.drivers2.value).subscribe((next) => {     
     console.log("YES WE DID IT !!! WE HAVE ADDED A NEW drivers");
-})
+   
+    })
+  }
 }
 
 fetchData(id: number){
   this.teams$ = this._teamsService.getTeamsPerChampionships(id);
  }
+
+ public noWhitespaceValidator(control: FormControl) {
+  const isWhitespace = (control.value || '').trim().length === 0;
+
+  const isValid = !isWhitespace;
+  return isValid ? null : { 'whitespace': true };
+}
 }
 

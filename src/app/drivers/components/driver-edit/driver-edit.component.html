@@ -3,7 +3,7 @@
             <form [formGroup]="driversForm" (ngSubmit)="onSubmit(driversForm.value)">
             <mat-list>
                     <mat-list-item fxLayout="row" fxLayoutAlign="end start">
-                        <button mat-raised-button type="submit"  color="primary" ><mat-icon>done</mat-icon>DONE</button>
+                        <button mat-raised-button [disabled]="!driversForm.valid" type="submit"  color="primary" ><mat-icon>done</mat-icon>DONE</button>
                         <button mat-raised-button routerLink=".." color="warn"><mat-icon>cancel</mat-icon>CANCEL</button>
                         <button mat-raised-button routerLink=".."  >Back</button>
 
@@ -12,8 +12,11 @@
             </mat-list>
             
             <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="250px">
-                <div fxLayout="row" fxLayoutAlign="start none">
-                    <img src="https://www.f1-fansite.com/wp-content/uploads/2020/03/Leiws-Hamilton-2020.png" alt="" >
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Picture</mat-label>
+                        <input type="text" formControlName="picture" matInput placeholder="Link to a picture">
+                    </mat-form-field>
                 </div>
                 <div fxLayout="column" fxLayoutAlign="center center" class="margin-top">
                     <mat-form-field appearance="outline">

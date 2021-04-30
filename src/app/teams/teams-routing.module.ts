@@ -29,6 +29,10 @@ const routes: Routes = [
         component: TeamEditComponent,
       },
       {
+        path: 'add/:id',
+        component: TeamsFormComponent,
+      },
+      {
         path: ':id/add',
         component: DriversFormComponent,
       },

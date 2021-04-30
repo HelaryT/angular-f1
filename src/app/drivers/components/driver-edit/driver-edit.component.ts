@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Drivers } from 'src/app/core/models/drivers';
 import { DriversService } from 'src/app/core/services/http/drivers.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DriversFormData } from 'src/app/core/models/drivers-form-data';
 
 @Component({
@@ -29,18 +29,19 @@ export class DriverEditComponent implements OnInit {
     }
 
     this.driversForm = this.fb.group({
-      name:['', [Validators.required]],
-      country:['', [Validators.required]],
+      name:['', [Validators.required,this.noWhitespaceValidator]],
+      country:['', [Validators.required,this.noWhitespaceValidator]],
       podiums:['', [Validators.required]],
       points:['', [Validators.required]],
-      team_name:['', [Validators.required]],
+      team_name:['', [Validators.required,this.noWhitespaceValidator]],
       gp:['', [Validators.required]],
       champion:['', [Validators.required]],
       drivernb:['', [Validators.required]],
-      dob:['', [Validators.required]],
-      picture:['', [Validators.required]],
-      flag:['', [Validators.required]],
-      city:['', [Validators.required]],
+      age:['', [Validators.required,this.noWhitespaceValidator]],
+      dob:['', [Validators.required,this.noWhitespaceValidator]],
+      picture:['', [Validators.required,this.noWhitespaceValidator]],
+      flag:['', [Validators.required,this.noWhitespaceValidator]],
+      city:['', [Validators.required,this.noWhitespaceValidator]],
       join_f1:['', [Validators.required]]
 
     }); 
@@ -54,10 +55,17 @@ export class DriverEditComponent implements OnInit {
   }
 
   onSubmit(drivers: Drivers) {
+    if (this.driversForm.valid) {
         this._driversService.put(drivers,this.driverId).subscribe((next) => {
           console.log("YES WE DID IT !!! WE HAVE updated A STUDENT");
         })
-      
+    }
+  }
+    public noWhitespaceValidator(control: FormControl) {
+      const isWhitespace = (control.value || '').trim().length === 0;
+  
+      const isValid = !isWhitespace;
+      return isValid ? null : { 'whitespace': true };
     }
   }
 

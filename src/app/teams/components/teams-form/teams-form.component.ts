@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Championships } from 'src/app/core/models/championships';
@@ -62,16 +62,16 @@ export class TeamsFormComponent implements OnInit {
 
 
     this.teamsForm = this._formBuilder.group({
-      name:['', Validators.required],
-      headchief:['', Validators.required],
-      headtech:['', Validators.required],
-      base:['', Validators.required],
-      flag:['', Validators.required],
+      name:['', Validators.required,this.noWhitespaceValidator],
+      headchief:['', Validators.required,this.noWhitespaceValidator],
+      headtech:['', Validators.required,this.noWhitespaceValidator],
+      base:['', Validators.required,this.noWhitespaceValidator],
+      flag:['', Validators.required,this.noWhitespaceValidator],
       startyear:['', Validators.required],
-      logo:['', Validators.required],
-      car:['', Validators.required],
-      team_color:['', Validators.required],
-      teampoint:['', Validators.required],
+      logo:['', Validators.required,this.noWhitespaceValidator],
+      car:['', Validators.required,this.noWhitespaceValidator],
+      team_color:['', Validators.required,this.noWhitespaceValidator],
+      teampoint:['', Validators.required,this.noWhitespaceValidator],
       teamchampionships:['', Validators.required],
       championshipid:[this.champsId, Validators.required]
     });
@@ -81,14 +81,23 @@ export class TeamsFormComponent implements OnInit {
 
 
 teamsFormSend(){
+  if (this.teamsForm.valid) {
+
   console.log(this.teamsForm.value);
   this._teamsService.post(this.teamsForm.value).subscribe((next) => {
           
     console.log("YES WE DID IT !!! WE HAVE ADDED A NEW team");
-})
+  })
+  }
 }
 
 fetchData(id: number){
   this.teams$ = this._teamsService.getTeamsPerChampionships(id);
  }
+ public noWhitespaceValidator(control: FormControl) {
+  const isWhitespace = (control.value || '').trim().length === 0;
+
+  const isValid = !isWhitespace;
+  return isValid ? null : { 'whitespace': true };
+}
 }

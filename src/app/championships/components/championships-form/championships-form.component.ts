@@ -21,16 +21,16 @@ export class ChampionshipsFormComponent implements OnInit {
 
     if (data.toUpdate) {
       this.championshipsForm = this.fb.group({
-        name: [data.championships.name, [Validators.required]],
+        name: [data.championships.name, [Validators.required,this.noWhitespaceValidator]],
         years: [data.championships.years, [Validators.required]],
-        logo: [data.championships.logo, [Validators.required]],
+        logo: [data.championships.logo, [Validators.required,this.noWhitespaceValidator]],
       })
     }
     else {
       this.championshipsForm = this.fb.group({
-        name: ['', [Validators.required]],
+        name: ['', [Validators.required,this.noWhitespaceValidator]],
         years: ['', [Validators.required]],
-        logo: ['', [Validators.required]],
+        logo: ['', [Validators.required,this.noWhitespaceValidator]],
       })
     }
   }
@@ -44,13 +44,13 @@ export class ChampionshipsFormComponent implements OnInit {
       if (this.data.toUpdate) {
         championships.id = this.data.championships.id;
         this._championshipsService.put(championships).subscribe((next) => {
-          console.log("YES WE DID IT !!! WE HAVE updated A STUDENT");
+          console.log("YES WE DID IT !!! WE HAVE updated A champ");
           this.championshipsForm.reset();
           this._dialogRef.close();
         })
       } else {
         this._championshipsService.post(championships).subscribe((next) => {
-          console.log("YES WE DID IT !!! WE HAVE ADDED A NEW STUDENT");
+          console.log("YES WE DID IT !!! WE HAVE ADDED A NEW champ");
           this.championshipsForm.reset();
           this._dialogRef.close();
         })
@@ -58,6 +58,12 @@ export class ChampionshipsFormComponent implements OnInit {
 
 
     }
+  }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
 }
 
