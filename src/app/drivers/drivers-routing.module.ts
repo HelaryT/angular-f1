@@ -21,10 +21,6 @@ const routes: Routes = [
         component: DriversFormComponent,
       },
       {
-        path: ':id/edit',
-        component: DriverEditComponent,
-      },
-      {
         path: 'drivers',
         component: DriversListComponent,
       },

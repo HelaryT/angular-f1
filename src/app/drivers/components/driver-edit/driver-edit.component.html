@@ -1,105 +1,93 @@
-<div class="viewport">
-        <div *ngIf="drivers$ | async as driver;">
-            <form [formGroup]="driversForm" (ngSubmit)="onSubmit(driversForm.value)">
-            <mat-list>
-                    <mat-list-item fxLayout="row" fxLayoutAlign="end start">
-                        <button mat-raised-button [disabled]="!driversForm.valid" type="submit"  color="primary" ><mat-icon>done</mat-icon>DONE</button>
-                        <button mat-raised-button routerLink=".." color="warn"><mat-icon>cancel</mat-icon>CANCEL</button>
-                        <button mat-raised-button routerLink=".."  >Back</button>
-
-                    </mat-list-item>
-                    <mat-divider style="border : solid 1px {{driver.team_color}};"></mat-divider>
-            </mat-list>
-            
-            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="250px">
-                <div fxLayout="column" fxLayoutAlign="center center">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Picture</mat-label>
-                        <input type="text" formControlName="picture" matInput placeholder="Link to a picture">
-                    </mat-form-field>
-                </div>
-                <div fxLayout="column" fxLayoutAlign="center center" class="margin-top">
-                    <mat-form-field appearance="outline">
-                        <mat-label>{{driver.name}}</mat-label>
-                        <input type="text" formControlName="name" matInput placeholder="{{driver.name}}">
-                    </mat-form-field>
-                    <div fxLayout="row" fxLayoutAlign="start start">
-                        <mat-form-field appearance="outline">
-                            <mat-label>{{driver.drivernb}}</mat-label>
-                            <input formControlName="drivernb" matInput type="number" placeholder="{{driver.drivernb}}">
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Flag</mat-label> 
-                            <input type="text"formControlName="flag" matInput placeholder="Link to flag">
-                        </mat-form-field>
-                    </div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>{{driver.team_name}}</mat-label>
-                        <input type="text" formControlName="team_name" matInput placeholder="{{driver.team_name}}">
-                    </mat-form-field>
-                    <div  fxLayout="column" fxLayoutAlign="start none" fxLayoutGap="50px"> 
-                        <div class="margin-top" class="container" style="border-top: solid 2px {{driver.team_color}};">
-                            <div fxLayout="column"  fxLayoutAlign="start start">
-                                <h2 style="border-bottom: solid 2px {{driver.team_color}}">Life</h2>
-                            </div>
-                            <div fxLayout="column"  fxLayoutAlign="start start">
-                                <p>Born in 
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>{{driver.country}}</mat-label>
-                                        <input type="text"formControlName="country" matInput placeholder="{{driver.country}}">
-                                    </mat-form-field>
-                                    , <mat-form-field appearance="outline">
-                                        <mat-label>City</mat-label>
-                                        <input type="text"formControlName="city"matInput placeholder="City">
-                                    </mat-form-field>
-                                     the    
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>{{driver.dob}}</mat-label>
-                                        <input type="text"formControlName="dob"matInput placeholder="{{driver.dob}}">
-                                    </mat-form-field>.</p>
-                                <p>{{driver.name}} find passion in racing starting with karting.</p>
-                                <p>As he progress troughout the years. In 
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Joined F1</mat-label>
-                                        <input formControlName="join_f1" matInput type="number" placeholder="Joined F1">
-                                    </mat-form-field>, he finally joined what he wished the championship.name.</p>
-                                <p>Now <mat-form-field appearance="outline">
-                                    <mat-label>Age</mat-label>
-                                    <input formControlName="age" matInput type="number" placeholder="{{driver.age}}">
-                                </mat-form-field> he's giving it everything at {{driver.team_name}}.</p>
-                            </div>
-                        </div>
-                        <div class="container" style="border-top: solid 2px {{driver.team_color}}">
-                            <div fxLayout="column" fxLayoutAlign="start start">
-                                <h2 style="border-bottom: solid 2px {{driver.team_color}}">Carrer</h2>
-                            </div>
-                            <div fxLayout="column"  fxLayoutAlign="start start">
-                                <p>{{driver.name}} runs quite a few race, 
-                                <mat-form-field appearance="outline">
-                                    <mat-label>{{driver.gp}}</mat-label>
-                                    <input formControlName="gp" matInput type="number" placeholder="{{driver.gp}}">
-                                </mat-form-field> to be exact.</p>
-                                <p>In those race he managed to find and score as 
-                                <mat-form-field appearance="outline">
-                                    <mat-label>{{driver.points}}</mat-label>
-                                    <input formControlName="points" matInput type="number" placeholder="{{driver.points}}">
-                                </mat-form-field>
-                                 points.</p>
-                                <p>Ultimately, he finished on the podium 
-                                <mat-form-field appearance="outline">
-                                    <mat-label>{{driver.podiums}}</mat-label>
-                                    <input formControlName="podiums" matInput type="number" placeholder="{{driver.podiums}}">
-                                </mat-form-field> times.</p>
-                                <p>But most importantly he won the greatest prize of all. Be the champion of the world <mat-form-field appearance="outline">
-                                    <mat-label>{{driver.champion}}</mat-label>
-                                    <input  formControlName="champion" matInput type="number" placeholder="{{driver.champion}}">
-                                </mat-form-field> times.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>  
-        </form> 
-    </div> 
-</div>  
-
+<form [formGroup]="driversForm" (ngSubmit)="onSubmit(driversForm.value)">
+    <h2 mat-dialog-title>Driver Edit</h2>
+    <mat-dialog-content class="mat-typography">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Picture</mat-label>
+                <input type="text" formControlName="picture" matInput placeholder="https://img">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input type="text" formControlName="name" matInput placeholder="Name...">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>His car number</mat-label>
+                <input formControlName="drivernb" matInput type="number" placeholder="Car number">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Flag</mat-label> 
+                <input type="text"formControlName="flag" matInput placeholder="Link to flag">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Team name</mat-label>
+                <input type="text" formControlName="team_name" matInput placeholder="name...">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Country</mat-label>
+                <input type="text"formControlName="country" matInput placeholder="Country">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input type="text"formControlName="city"matInput placeholder="City">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Date de naissance</mat-label>
+                <input type="text"formControlName="dob"matInput placeholder="**/**/**">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Joined F1</mat-label>
+                <input formControlName="join_f1" matInput type="number" placeholder="201*">
+            </mat-form-field>   
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Age</mat-label>
+                <input formControlName="age" matInput type="number" placeholder="2">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>GP runned</mat-label>
+                <input formControlName="gp" matInput type="number" placeholder="150">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Points Scored</mat-label>
+                <input formControlName="points" matInput type="number" placeholder="0">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Podiums earned</mat-label>
+                <input formControlName="podiums" matInput type="number" placeholder="3">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Championship Winner</mat-label>
+                <input  formControlName="champion" matInput type="number" placeholder="3">
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button type="submit" cdkFocusInitial [disabled]="!driversForm.valid" color="primary"><mat-icon>done</mat-icon>Done</button>
+    </mat-dialog-actions>
+  </form>

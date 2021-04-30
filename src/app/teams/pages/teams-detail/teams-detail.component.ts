@@ -38,7 +38,7 @@ export class TeamsDetailComponent implements OnInit {
   delete(teams: Teams){
     this._teamsService.delete(teams).subscribe(next => {
     })
-    this.openSnackBar("Updated team","Nice");
+    this.openSnackBar("Deleted team","Not Nice");
 
   }
 

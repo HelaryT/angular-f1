@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Championships } from 'src/app/core/models/championships';
@@ -51,7 +52,7 @@ export class TeamsFormComponent implements OnInit {
   }
 
   isEditable = false;
-  constructor(private _formBuilder: FormBuilder,private _activateRoute:ActivatedRoute,private _driversService:DriversService,private _teamsService:TeamsService,private _championshipsService:ChampionshipsService) {}
+  constructor(private _snackBar: MatSnackBar,private _formBuilder: FormBuilder,private _activateRoute:ActivatedRoute,private _driversService:DriversService,private _teamsService:TeamsService,private _championshipsService:ChampionshipsService) {}
 
   ngOnInit() {
     this.champsId = Number(this._activateRoute.snapshot.paramMap.get('id'));
@@ -85,12 +86,14 @@ teamsFormSend(){
 
   console.log(this.teamsForm.value);
   this._teamsService.post(this.teamsForm.value).subscribe((next) => {
-          
+    this.openSnackBar("Add team","Nice")
     console.log("YES WE DID IT !!! WE HAVE ADDED A NEW team");
   })
   }
 }
-
+openSnackBar(message: string, action: string) {
+  this._snackBar.open(message, action);
+}
 fetchData(id: number){
   this.teams$ = this._teamsService.getTeamsPerChampionships(id);
  }
